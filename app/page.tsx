@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Github, Gitlab, Linkedin, Mail, ArrowRight, Sparkles, Code, Database, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
+import { ProfileImage } from "@/components/profile-image"
 
 export default function Home() {
   return (
@@ -117,16 +118,22 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Enhanced Visual Element */}
-            <div className="hidden lg:block animate-fade-in">
-              <div className="relative">
-                {/* Enhanced background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-3xl blur-3xl animate-pulse"></div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/20 rounded-3xl blur-2xl animate-pulse delay-500"></div>
+            {/* Mobile Profile Image and Stats */}
+            <div className="lg:hidden animate-fade-in mb-8">
+              <div className="space-y-6">
+                <div className="flex justify-center">
+                  <div className="relative">
+                    <ProfileImage className="w-48 h-60 mx-auto hover:scale-105 transition-transform duration-500" />
+                    {/* Floating elements around the image */}
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-warm-gradient rounded-full animate-pulse"></div>
+                    <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-warm-gradient rounded-full animate-pulse delay-300"></div>
+                  </div>
+                </div>
                 
-                <div className="relative bg-card/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 space-y-6 professional-shadow-xl">
+                {/* Mobile Stats Card */}
+                <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 professional-shadow-lg">
                   <div className="space-y-4">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center gap-3">
                       <div className="relative">
                         <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                         <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
@@ -164,20 +171,98 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
+                    
+                    <div className="border-t border-border/50 pt-4 mt-4">
+                      <p className="text-sm text-muted-foreground mb-3 font-medium text-center">Technologies favorites</p>
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {["Python", "React", "TypeScript", "Django", "Spring Boot"].map((tech, index) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 text-muted-foreground text-xs rounded-full font-mono border border-primary/20 hover:border-primary/40 hover:bg-primary/20 transition-all duration-300 cursor-default"
+                            style={{animationDelay: `${index * 100}ms`}}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Profile Image and Stats */}
+            <div className="hidden lg:block animate-fade-in">
+              <div className="relative">
+                {/* Enhanced background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-3xl blur-3xl animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/20 rounded-3xl blur-2xl animate-pulse delay-500"></div>
+                
+                <div className="relative space-y-8">
+                  {/* Profile Image */}
+                  <div className="relative">
+                    <ProfileImage className="w-full max-w-sm mx-auto hover:scale-105 transition-transform duration-500" />
+                    {/* Floating elements around the image */}
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-warm-gradient rounded-full animate-pulse"></div>
+                    <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-warm-gradient rounded-full animate-pulse delay-300"></div>
                   </div>
                   
-                  <div className="border-t border-border/50 pt-6">
-                    <p className="text-sm text-muted-foreground mb-4 font-medium">Technologies favorites</p>
-                    <div className="flex flex-wrap gap-2">
-                      {["Python", "React", "TypeScript", "Django", "Spring Boot"].map((tech, index) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 text-muted-foreground text-xs rounded-full font-mono border border-primary/20 hover:border-primary/40 hover:bg-primary/20 transition-all duration-300 cursor-default"
-                          style={{animationDelay: `${index * 100}ms`}}
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  {/* Stats Card */}
+                  <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 professional-shadow-lg">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <div className="relative">
+                          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                          <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
+                        </div>
+                        <span className="text-sm text-muted-foreground font-mono">Actuellement disponible</span>
+                      </div>
+                      
+                      {/* Animated progress bars */}
+                      <div className="space-y-3">
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-xs text-muted-foreground">
+                            <span>Développement Fullstack</span>
+                            <span>85%</span>
+                          </div>
+                          <div className="h-2 bg-muted rounded-full overflow-hidden">
+                            <div className="h-full bg-warm-gradient rounded-full animate-pulse" style={{width: '85%'}}></div>
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-xs text-muted-foreground">
+                            <span>Data Engineering</span>
+                            <span>35%</span>
+                          </div>
+                          <div className="h-2 bg-muted rounded-full overflow-hidden">
+                            <div className="h-full bg-warm-gradient rounded-full animate-pulse delay-300" style={{width: '35%'}}></div>
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-xs text-muted-foreground">
+                            <span>Machine Learning</span>
+                            <span>25%</span>
+                          </div>
+                          <div className="h-2 bg-muted rounded-full overflow-hidden">
+                            <div className="h-full bg-warm-gradient rounded-full animate-pulse delay-700" style={{width: '25%'}}></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="border-t border-border/50 pt-4 mt-4">
+                      <p className="text-sm text-muted-foreground mb-3 font-medium">Technologies favorites</p>
+                      <div className="flex flex-wrap gap-2">
+                        {["Python", "React", "TypeScript", "Django", "Spring Boot"].map((tech, index) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 text-muted-foreground text-xs rounded-full font-mono border border-primary/20 hover:border-primary/40 hover:bg-primary/20 transition-all duration-300 cursor-default"
+                            style={{animationDelay: `${index * 100}ms`}}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
