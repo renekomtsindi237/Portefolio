@@ -35,7 +35,7 @@ export default function Home() {
                 </h1>
                 
                 <p className="text-xl sm:text-2xl text-primary font-medium text-professional-lg">
-                  Ingénieur en formation | Développeur Fullstack & Data Enthusiast
+                  Ingénieur en formation | Développeur Fullstack & Data Engineer Junior
                 </p>
               </div>
 
