@@ -18,7 +18,7 @@ const projects = [
     description:
       "Application mobile destinée aux servants de messe pour faciliter la gestion des plannings et des activités.",
     stack: ["JavaScript", "React Native", "Expo", "Firebase"],
-    link: "https://github.com/Airfox24528/servantassit",
+    link: "https://github.com/Airfox24528/Assist_Servant",
     platform: "github",
   },
   {
