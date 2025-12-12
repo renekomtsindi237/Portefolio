@@ -64,7 +64,7 @@ export default function ContactPage() {
                   >
                     {/* Background gradient effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
+
                     <div className="relative flex items-start gap-4">
                       <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-300 group-hover:scale-110">
                         <Icon className="h-6 w-6 text-primary" />

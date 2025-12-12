@@ -20,7 +20,7 @@ const skillCategories = [
   {
     title: "Bases de données",
     icon: Database,
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase","supabase", "SQLite", "Redis", "Stockage Cloud"],
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "supabase", "SQLite", "Redis", "Stockage Cloud"],
   },
   {
     title: "Outils & DevOps",
@@ -54,32 +54,39 @@ export default function CompetencesPage() {
                 return (
                   <div
                     key={category.title}
-                    className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 relative overflow-hidden card-professional"
+                    className="magic-bento-card magic-bento-card--border-glow group relative overflow-hidden bg-card/95 backdrop-blur-md rounded-3xl shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500"
                     style={{
                       animationDelay: `${index * 100}ms`,
+                      border: '3px solid transparent',
+                      backgroundImage: 'linear-gradient(oklch(0.08 0.01 0), oklch(0.08 0.01 0)), linear-gradient(135deg, oklch(0.5 0.18 15), oklch(0.6 0.15 45), oklch(0.7 0.12 60))',
+                      backgroundOrigin: 'border-box',
+                      backgroundClip: 'padding-box, border-box',
                     }}
                   >
-                    {/* Background gradient effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div className="relative">
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-300 group-hover:scale-110">
-                          <Icon className="h-6 w-6 text-primary" />
+                    {/* Enhanced background gradient effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-accent/10 to-primary/15 opacity-50 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+
+                    {/* Warm glow effect */}
+                    <div className="absolute inset-0 bg-warm-gradient opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500"></div>
+
+                    <div className="relative z-10 p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2.5 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300 group-hover:scale-110 shadow-md group-hover:shadow-lg group-hover:shadow-primary/30">
+                          <Icon className="h-5 w-5 text-warm-gradient drop-shadow-lg" />
                         </div>
-                        <div>
-                          <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 subheading-professional">
+                        <div className="flex-1">
+                          <h2 className="text-lg font-bold text-foreground group-hover:text-warm-gradient transition-all duration-300 subheading-professional">
                             {category.title}
                           </h2>
-                          <div className="w-0 group-hover:w-16 h-0.5 bg-warm-gradient transition-all duration-500 mt-1"></div>
+                          <div className="w-0 group-hover:w-20 h-1 bg-warm-gradient transition-all duration-500 mt-0.5 rounded-full shadow-sm"></div>
                         </div>
                       </div>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5">
                         {category.skills.map((skill, skillIndex) => (
                           <span
                             key={skill}
-                            className="px-3 py-2 bg-gradient-to-r from-primary/10 to-accent/10 text-muted-foreground text-sm rounded-lg font-mono border border-primary/20 hover:border-primary/40 hover:bg-primary/20 hover:text-primary transition-all duration-300 cursor-default hover:scale-105"
-                            style={{animationDelay: `${skillIndex * 50}ms`}}
+                            className="px-2.5 py-1.5 bg-gradient-to-r from-primary/15 to-accent/15 text-muted-foreground text-xs rounded-lg font-mono border border-primary/30 hover:border-primary/60 hover:bg-primary/25 hover:text-primary transition-all duration-300 cursor-default hover:scale-105 shadow-sm hover:shadow-md"
+                            style={{ animationDelay: `${skillIndex * 50}ms` }}
                           >
                             {skill}
                           </span>
@@ -97,7 +104,7 @@ export default function CompetencesPage() {
               <p className="text-muted-foreground leading-relaxed">
                 Je suis actuellement en formation IBM Data Engineering sur Coursera, où j'approfondis mes connaissances
                 en ingénierie des données, ETL, et architecture de données. Je continue également à explorer le Machine
-                Learning et les technologies cloud pour élargir mes compétences.
+                Learning et les technologies cloud pour élargir mes compétences. Je suis actuellement en 4e année dans mon cycle de formation en filière ingénierie des systèmes d'information.
               </p>
             </div>
           </div>

@@ -66,7 +66,7 @@ export default function ProjetsPage() {
                 >
                   {/* Background gradient effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+
                   <div className="relative space-y-4">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-4">
@@ -110,7 +110,7 @@ export default function ProjetsPage() {
                         <span
                           key={tech}
                           className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 text-muted-foreground text-xs rounded-full font-mono border border-primary/20 hover:border-primary/40 hover:bg-primary/20 transition-all duration-300 cursor-default"
-                          style={{animationDelay: `${techIndex * 50}ms`}}
+                          style={{ animationDelay: `${techIndex * 50}ms` }}
                         >
                           {tech}
                         </span>
@@ -118,9 +118,9 @@ export default function ProjetsPage() {
                     </div>
 
                     <div className="pt-4">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
+                      <Button
+                        variant="outline"
+                        size="sm"
                         asChild
                         className="group/link hover:bg-primary/10 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
                       >

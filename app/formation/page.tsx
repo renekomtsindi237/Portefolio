@@ -16,8 +16,8 @@ const formations = [
     title: "Ingénieur en formation",
     institution: "Institut Saint Jean du Cameroun",
     status: "4e année",
-    description: "Formation d'ingénieur généraliste avec spécialisation en informatique et systèmes d'information.",
-    skills: ["Génie logiciel", "Algorithmique", "Bases de données", "Réseaux", "Gestion de projet"],
+    description: "Formation d'ingénieur de conception avec spécialisation en informatique et systèmes d'information.",
+    skills: ["Génie logiciel", "Algorithmique", "Bases de données", "Réseaux", "Gestion de projet", "etc"],
     icon: GraduationCap,
   },
   {
@@ -26,7 +26,7 @@ const formations = [
     status: "Continu",
     description:
       "Apprentissage autonome des technologies web modernes et des frameworks populaires pour le développement frontend et backend.",
-    skills: ["Angular", "React", "Spring Boot", "Django", "React Native"],
+    skills: ["Angular", "React", "Spring Boot", "Django", "React Native", "etc"],
     icon: BookOpen,
   },
   {
@@ -66,7 +66,7 @@ export default function FormationPage() {
                   >
                     {/* Background gradient effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
+
                     <div className="relative flex flex-col md:flex-row md:items-start gap-6">
                       <div className="flex-shrink-0">
                         <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-300 group-hover:scale-110">
@@ -101,7 +101,7 @@ export default function FormationPage() {
                               <span
                                 key={skill}
                                 className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 text-muted-foreground text-xs rounded-lg font-mono border border-primary/20 hover:border-primary/40 hover:bg-primary/20 hover:text-primary transition-all duration-300 cursor-default hover:scale-105"
-                                style={{animationDelay: `${skillIndex * 50}ms`}}
+                                style={{ animationDelay: `${skillIndex * 50}ms` }}
                               >
                                 {skill}
                               </span>
@@ -119,7 +119,7 @@ export default function FormationPage() {
             <div className="mt-12 bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 relative overflow-hidden">
               {/* Background gradient effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <div className="relative">
                 <h2 className="text-2xl font-semibold text-foreground mb-4">Philosophie d'apprentissage</h2>
                 <p className="text-muted-foreground leading-relaxed mb-6">
@@ -128,8 +128,8 @@ export default function FormationPage() {
                   m'efforce de rester à jour avec les dernières tendances en développement logiciel et en data
                   engineering.
                 </p>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   asChild
                   className="hover:bg-primary/10 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
                 >
