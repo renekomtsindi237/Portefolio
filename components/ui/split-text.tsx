@@ -1,33 +1,29 @@
 'use client';
 
-import { useEffect, useRef, ElementType } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './split-text.css';
 
 interface SplitTextProps {
     text: string;
-    as?: ElementType;
     className?: string;
     duration?: number;
     stagger?: number;
     delay?: number;
     ease?: string;
     yOffset?: number;
-    [key: string]: any;
 }
 
 const SplitText = ({
     text,
-    as: Component = 'span',
     className = '',
     duration = 0.8,
     stagger = 0.03,
     delay = 0,
     ease = 'power3.out',
     yOffset = 20,
-    ...props
 }: SplitTextProps) => {
-    const containerRef = useRef<HTMLElement>(null);
+    const containerRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -58,9 +54,9 @@ const SplitText = ({
     ));
 
     return (
-        <Component ref={containerRef} className={`split-text ${className}`} {...props}>
+        <span ref={containerRef} className={`split-text ${className}`}>
             {chars}
-        </Component>
+        </span>
     );
 };
 
