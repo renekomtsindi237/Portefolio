@@ -26,8 +26,8 @@ const contactMethods = [
   },
   {
     name: "GitHub",
-    value: "@renekomtsindi",
-    href: "https://github.com/Airfox24528",
+    value: "@renekomtsindi237",
+    href: "https://github.com/renekomtsindi237",
     icon: Github,
     description: "Explorez mon code open source",
   },

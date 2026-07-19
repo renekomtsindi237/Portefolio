@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Rene Komtsindi - Ingénieur en formation | Développeur Fullstack",
   description:
-    "Portfolio de Rene Komtsindi, étudiant ingénieur passionné par le développement fullstack et le data engineering.",
+    "Portfolio de Rene Komtsindi, Élève Ingénieur Logiciel | Spécialisation Architectures de Données & Data Engineering ",
     generator: 'v0.app'
 }
 

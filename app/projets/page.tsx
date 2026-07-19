@@ -1,42 +1,63 @@
 import { Navigation } from "@/components/navigation"
-import { ExternalLink, Github, Gitlab } from "lucide-react"
+import { ExternalLink, Github, Gitlab, Landmark, Church, Cloud, Wheat, Library, Clapperboard } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const projects = [
   {
-    title: "AgriPrix Cameroun",
-    emoji: "🌍",
+    title: "MicroRecouv",
+    icon: Landmark,
     description:
-      "Application permettant de visualiser les données météorologiques et l'évolution des prix agricoles au Cameroun.",
-    stack: ["Python", "Django", "Chart.js"],
-    link: "https://github.com/Airfox24528/agriprix_cameroun",
-    platform: "gitlab",
+      "Système intégré de pipeline de données, API REST et applications multiplateforme pour la gestion et le recouvrement de créances dans les institutions de microfinance au Cameroun. Projet réalisé en stage chez Openxtech.",
+    stack: ["Angular", "Flutter", "API REST", "Pipeline de données"],
+    links: [{ label: "Dépôt", url: "https://github.com/renekomtsindi237/Stage" }],
   },
   {
     title: "ServantAssist",
-    emoji: "⛪",
+    icon: Church,
     description:
-      "Application mobile destinée aux servants de messe pour faciliter la gestion des plannings et des activités.",
-    stack: ["JavaScript", "React Native", "Expo", "Firebase"],
-    link: "https://github.com/Airfox24528/Assist_Servant",
-    platform: "github",
+      "Plateforme complète de gestion des servants d'autel (plannings, formations, activités liturgiques) pour la Basilique Marie Reine des Apôtres de Mvolyé : backend Clean Architecture, application web et mobile.",
+    stack: ["FastAPI", "Angular", "Flutter", "PostgreSQL", "Redis", "Docker"],
+    links: [
+      { label: "Backend", url: "https://github.com/renekomtsindi237/servantassist-backend" },
+      { label: "Web", url: "https://github.com/renekomtsindi237/servantassist-web" },
+      { label: "Mobile", url: "https://github.com/renekomtsindi237/servantasist-mobile" },
+      { label: "Infra", url: "https://github.com/renekomtsindi237/servantassist-platform" },
+    ],
   },
   {
-    title: "BotCineyang",
-    emoji: "🎬",
+    title: "TP Cloud — Plateforme Analytics",
+    icon: Cloud,
     description:
-      "Chatbot intelligent proposant des recommandations de films et séries basées sur les préférences utilisateur.",
-    stack: ["Python", "NLP", "APIs externes"],
-    link: "https://github.com/Airfox24528/botcineyang",
-    platform: "github",
+      "Plateforme analytics conteneurisée avec portail unifié : instances Matomo derrière load balancer, monitoring complet (Prometheus, Grafana, Loki) et sauvegarde automatisée sur S3.",
+    stack: ["Docker", "Angular", "FastAPI", "Traefik", "Prometheus", "Grafana"],
+    links: [{ label: "Dépôt", url: "https://github.com/renekomtsindi237/TP_Cloud" }],
   },
   {
-    title: "SafeSave",
-    emoji: "💰",
-    description: "Application sécurisée de gestion d'épargne et de petites transactions avec authentification robuste.",
-    stack: ["Java", "Spring Boot", "React", "PostgreSQL"],
-    link: "https://github.com/Airfox24528/safesave",
-    platform: "gitlab",
+    title: "AgriPrix Cameroun",
+    icon: Wheat,
+    description:
+      "Application web permettant de suivre l'évolution des prix des produits agricoles (manioc, maïs, plantains) au Cameroun en fonction des conditions météorologiques.",
+    stack: ["Python", "Flask", "Chart.js"],
+    links: [{ label: "Dépôt", url: "https://github.com/renekomtsindi237/agriprix_cameroun" }],
+  },
+  {
+    title: "Bibliothèque Numérique Camerounaise",
+    icon: Library,
+    description:
+      "Plateforme de lecture numérique dédiée à la promotion de la littérature camerounaise et africaine : catalogue, recherche avancée, authentification JWT et stockage des œuvres sur Cloudflare R2.",
+    stack: ["Node.js", "Express", "PostgreSQL", "Cloudflare R2", "JWT"],
+    links: [{ label: "Dépôt", url: "https://github.com/renekomtsindi237/Backend_biblio" }],
+  },
+  {
+    title: "Cineyang",
+    icon: Clapperboard,
+    description:
+      "Écosystème autour d'une plateforme de films et séries : bot Telegram annonçant automatiquement les nouveautés et site de téléchargement sécurisé.",
+    stack: ["Node.js", "Next.js", "Telegram API", "Supabase", "AWS S3"],
+    links: [
+      { label: "Bot Telegram", url: "https://github.com/renekomtsindi237/CineyangBot" },
+      { label: "Site de téléchargement", url: "https://github.com/renekomtsindi237/cine-eyang-download-main" },
+    ],
   },
 ]
 
@@ -56,7 +77,9 @@ export default function ProjetsPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {projects.map((project, index) => (
+              {projects.map((project, index) => {
+                const Icon = project.icon
+                return (
                 <div
                   key={project.title}
                   className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 relative overflow-hidden card-professional"
@@ -70,8 +93,8 @@ export default function ProjetsPage() {
                   <div className="relative space-y-4">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                          {project.emoji}
+                        <div className="p-3 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300 group-hover:scale-110 shadow-md group-hover:shadow-lg group-hover:shadow-primary/30">
+                          <Icon className="h-7 w-7 text-warm-gradient drop-shadow-lg" />
                         </div>
                         <div>
                           <h2 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 subheading-professional">
@@ -87,16 +110,12 @@ export default function ProjetsPage() {
                         className="opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary/10 hover:scale-110"
                       >
                         <a
-                          href={project.link}
+                          href={project.links[0].url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Voir ${project.title} sur ${project.platform}`}
+                          aria-label={`Voir ${project.title} sur GitHub`}
                         >
-                          {project.platform === "github" ? (
-                            <Github className="h-5 w-5" />
-                          ) : (
-                            <Gitlab className="h-5 w-5" />
-                          )}
+                          <Github className="h-5 w-5" />
                         </a>
                       </Button>
                     </div>
@@ -117,22 +136,26 @@ export default function ProjetsPage() {
                       ))}
                     </div>
 
-                    <div className="pt-4">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        asChild
-                        className="group/link hover:bg-primary/10 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
-                      >
-                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="group/link">
-                          Voir le projet
-                          <ExternalLink className="ml-2 h-3 w-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
-                        </a>
-                      </Button>
+                    <div className="pt-4 flex flex-wrap gap-3">
+                      {project.links.map((linkItem) => (
+                        <Button
+                          key={linkItem.url}
+                          variant="outline"
+                          size="sm"
+                          asChild
+                          className="group/link hover:bg-primary/10 hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                        >
+                          <a href={linkItem.url} target="_blank" rel="noopener noreferrer" className="group/link">
+                            {project.links.length > 1 ? linkItem.label : "Voir le projet"}
+                            <ExternalLink className="ml-2 h-3 w-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-300" />
+                          </a>
+                        </Button>
+                      ))}
                     </div>
                   </div>
                 </div>
-              ))}
+                )
+              })}
             </div>
 
             {/* Call to Action */}
@@ -144,7 +167,7 @@ export default function ProjetsPage() {
               </p>
               <div className="flex justify-center gap-4">
                 <Button variant="outline" asChild>
-                  <a href="https://github.com/Airfox24528" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/renekomtsindi237" target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" />
                     GitHub
                   </a>

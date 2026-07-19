@@ -57,7 +57,7 @@ export default function Home() {
                 </h1>
 
                 <TextType
-                  text="Ingénieur en formation | Développeur Fullstack & Data Engineer Junior"
+                  text="Élève Ingénieur Logiciel | Spécialisation Architectures de Données & Data Engineering"
                   className="text-xl sm:text-2xl text-primary font-medium text-professional-lg"
                   typingSpeed={75}
                   pauseDuration={3000}
@@ -130,7 +130,7 @@ export default function Home() {
                 </Button>
                 <Button variant="ghost" size="icon" asChild className="hover:bg-primary/20 hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-primary/40">
                   <a
-                    href="https://github.com/Airfox24528"
+                    href="https://github.com/renekomtsindi237"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub"

@@ -5,12 +5,12 @@ const skillCategories = [
   {
     title: "Langages",
     icon: Code2,
-    skills: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "C/C++"],
+    skills: ["Python", "Java", "JavaScript", "TypeScript", "Dart", "SQL", "C/C++"],
   },
   {
     title: "Frameworks & Bibliothèques",
     icon: Layers,
-    skills: ["Angular", "React", "React Native (Expo)", "Spring Boot", "Django", "Flask"],
+    skills: ["Angular", "Next.js", "React", "Flutter", "React Native (Expo)", "FastAPI", "Spring Boot", "Node.js / Express", "Django", "Flask"],
   },
   {
     title: "Data & Machine Learning (débutant)",
@@ -20,17 +20,17 @@ const skillCategories = [
   {
     title: "Bases de données",
     icon: Database,
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "supabase", "SQLite", "Redis", "Stockage Cloud"],
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "Supabase", "SQLite", "Redis", "Cloudflare R2 / AWS S3"],
   },
   {
     title: "Outils & DevOps",
     icon: Wrench,
-    skills: ["Git", "Docker", "GitLab CI/CD", "Linux"],
+    skills: ["Git", "Docker", "Traefik", "Prometheus / Grafana", "GitLab CI/CD", "Linux"],
   },
   {
     title: "Autres",
     icon: Globe,
-    skills: ["API REST", "Chart.js", "Intégration APIs externes"],
+    skills: ["API REST", "JWT", "Telegram Bot API", "Chart.js", "Intégration APIs externes"],
   },
 ]
 
