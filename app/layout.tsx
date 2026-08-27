@@ -17,10 +17,10 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Rene Komtsindi - Ingénieur en formation | Développeur Fullstack",
+  title: "Réné KOMTSINDI — Élève ingénieur logiciel | Data Engineering",
   description:
-    "Portfolio de Rene Komtsindi, Élève Ingénieur Logiciel | Spécialisation Architectures de Données & Data Engineering ",
-    generator: 'v0.app'
+    "Portfolio de Réné Alban Komtsindi, élève ingénieur en 5e année (2026–2027), option génie logiciel, en spécialisation Data Engineering. Projets MicroRecouv, lakehouse, AquaSensus.",
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -30,8 +30,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className="font-sans antialiased bg-background text-foreground">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange storageKey="portefolio-theme">
           {children}
         </ThemeProvider>
       </body>

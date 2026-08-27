@@ -8,28 +8,28 @@ const contactMethods = [
     value: "renekomtsindi7@gmail.com",
     href: "mailto:renekomtsindi7@gmail.com",
     icon: Mail,
-    description: "Pour toute demande professionnelle ou collaboration",
+    description: "Candidatures, stages, PFE et collaborations",
   },
   {
     name: "LinkedIn",
     value: "Rene Komtsindi",
     href: "https://www.linkedin.com/in/rene-komtsindi",
     icon: Linkedin,
-    description: "Connectons-nous professionnellement",
-  },
-  {
-    name: "GitLab",
-    value: "@renekomtsindi",
-    href: "https://gitlab.com/renekomtsindi",
-    icon: Gitlab,
-    description: "Découvrez mes projets et contributions",
+    description: "Parcours et échanges professionnels",
   },
   {
     name: "GitHub",
     value: "@renekomtsindi237",
     href: "https://github.com/renekomtsindi237",
     icon: Github,
-    description: "Explorez mon code open source",
+    description: "Dépôts publics : lakehouse, MicroRecouv, AquaSensus",
+  },
+  {
+    name: "GitLab",
+    value: "@renekomtsindi",
+    href: "https://gitlab.com/renekomtsindi",
+    icon: Gitlab,
+    description: "Miroir et projets complémentaires",
   },
 ]
 
@@ -43,8 +43,8 @@ export default function ContactPage() {
             <div className="space-y-4 text-center">
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground heading-professional">Contact</h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty body-professional">
-                N'hésitez pas à me contacter pour discuter de projets, de collaborations ou simplement pour échanger sur
-                la technologie.
+                Élève ingénieur en 5e année (2026–2027), je cherche un stage de fin d&apos;études ou une mission junior
+                en génie logiciel ou data engineering.
               </p>
             </div>
 
@@ -58,15 +58,12 @@ export default function ContactPage() {
                     target={method.href.startsWith("http") ? "_blank" : undefined}
                     rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 relative overflow-hidden card-professional"
-                    style={{
-                      animationDelay: `${index * 100}ms`,
-                    }}
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    {/* Background gradient effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     <div className="relative flex items-start gap-4">
-                      <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-300 group-hover:scale-110">
+                      <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl group-hover:scale-110 transition-all duration-300">
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
                       <div className="flex-1 space-y-3">
@@ -76,12 +73,8 @@ export default function ContactPage() {
                           </h2>
                           <div className="w-0 group-hover:w-12 h-0.5 bg-warm-gradient transition-all duration-500 mt-1"></div>
                         </div>
-                        <p className="text-muted-foreground font-mono text-sm group-hover:text-foreground/80 transition-colors duration-300">
-                          {method.value}
-                        </p>
-                        <p className="text-sm text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">
-                          {method.description}
-                        </p>
+                        <p className="text-muted-foreground font-mono text-sm">{method.value}</p>
+                        <p className="text-sm text-muted-foreground">{method.description}</p>
                       </div>
                     </div>
                   </a>
@@ -89,17 +82,16 @@ export default function ContactPage() {
               })}
             </div>
 
-            {/* Call to Action */}
             <div className="mt-12 bg-card border border-border rounded-xl p-8 text-center">
               <div className="max-w-2xl mx-auto space-y-6">
                 <div className="inline-flex p-3 bg-primary/10 rounded-full">
                   <Send className="h-8 w-8 text-primary" />
                 </div>
-                <h2 className="text-2xl font-semibold text-foreground">Travaillons ensemble</h2>
+                <h2 className="text-2xl font-semibold text-foreground">Ce que je peux apporter</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Je suis actuellement ouvert aux opportunités de stage, de projets freelance et de collaborations. Si
-                  vous avez un projet intéressant ou si vous souhaitez simplement discuter, je serais ravi d'échanger
-                  avec vous.
+                  Un profil capable de livrer une application (Spring, Angular, Flutter) et la chaîne de données
+                  qui la rend utile (Airflow, dbt, lakehouse, qualité). Idéal pour une équipe data, un éditeur
+                  métier ou une IMF / fintech qui a besoin d&apos;ingénierie de bout en bout.
                 </p>
                 <Button size="lg" asChild>
                   <a href="mailto:renekomtsindi7@gmail.com">
@@ -110,7 +102,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Availability Status */}
             <div className="bg-muted/50 border border-border rounded-xl p-6">
               <div className="flex items-center gap-3">
                 <div className="relative">
@@ -118,8 +109,8 @@ export default function ContactPage() {
                   <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  <span className="font-semibold text-foreground">Actuellement disponible</span> pour des opportunités
-                  de stage et des projets freelance
+                  <span className="font-semibold text-foreground">Disponible</span> pour un stage de 5e année, un PFE
+                  ou une mission junior — Yaoundé et remote.
                 </p>
               </div>
             </div>

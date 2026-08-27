@@ -29,7 +29,7 @@ export function ProfileImage({ className = "" }: ProfileImageProps) {
       <div className="relative">
         <Image
           src="/images/profile.jpg"
-          alt="Rene Komtsindi - Développeur Fullstack"
+          alt="Réné Komtsindi — élève ingénieur logiciel"
           width={400}
           height={500}
           className="w-full h-auto object-cover rounded-2xl shadow-lg"

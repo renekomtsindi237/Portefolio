@@ -5,8 +5,8 @@
     --warm-primary: oklch(0.5 0.18 15);
     --warm-glow: oklch(0.5 0.18 15 / 0.2);
     --warm-border: oklch(0.6 0.15 45 / 0.8);
-    --border-color: oklch(0.22 0.01 0);
-    --background-dark: oklch(0.08 0.01 0);
+    --border-color: var(--border);
+    --background-dark: var(--card);
     color-scheme: light dark;
 }
 

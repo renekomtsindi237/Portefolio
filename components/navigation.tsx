@@ -1,36 +1,27 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Moon, Sun, Menu, X } from "lucide-react"
-import { useTheme } from "next-themes"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const navItems = [
   { name: "Accueil", href: "/" },
   { name: "Compétences", href: "/competences" },
   { name: "Projets", href: "/projets" },
-  { name: "Formation", href: "/formation" },
+  { name: "Parcours", href: "/formation" },
+  { name: "Certifications", href: "/certifications" },
   { name: "Contact", href: "/contact" },
 ]
 
 export function Navigation() {
-  const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
   const pathname = usePathname()
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return null
-  }
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/50 professional-shadow">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b bg-background/95 backdrop-blur-xl professional-shadow dark:bg-card dark:border-primary/45 dark:shadow-[0_10px_32px_rgba(0,0,0,0.65)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold text-foreground hover:text-primary transition-all duration-300 hover:scale-105 group heading-professional">
@@ -47,7 +38,7 @@ export function Navigation() {
                 key={item.href}
                 href={item.href}
                 className={`relative text-sm font-medium transition-all duration-300 hover:text-primary group text-professional ${
-                  pathname === item.href ? "text-primary" : "text-muted-foreground"
+                  pathname === item.href ? "text-primary" : "text-foreground/80 dark:text-foreground"
                 }`}
               >
                 {item.name}
@@ -56,26 +47,12 @@ export function Navigation() {
                 }`}></div>
               </Link>
             ))}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="ml-2 hover:bg-primary/10 hover:scale-110 transition-all duration-300"
-            >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="hover:bg-primary/10 hover:scale-110 transition-all duration-300"
-            >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            <ThemeToggle />
             <Button 
               variant="ghost" 
               size="icon" 
@@ -90,15 +67,15 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl shadow-lg">
+        <div className="md:hidden border-t border-border bg-background dark:bg-card dark:border-primary/30 shadow-lg">
           <div className="px-4 py-4 space-y-3">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block py-3 px-4 text-base font-medium transition-all duration-300 hover:text-primary hover:bg-primary/5 rounded-lg ${
-                  pathname === item.href ? "text-primary bg-primary/5" : "text-muted-foreground"
+                className={`block py-3 px-4 text-base font-medium transition-all duration-300 hover:text-primary hover:bg-primary/10 rounded-lg ${
+                  pathname === item.href ? "text-primary bg-primary/10" : "text-foreground/80 dark:text-foreground"
                 }`}
               >
                 {item.name}
