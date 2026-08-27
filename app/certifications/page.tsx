@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
+import Link from "next/link"
 import { ChevronLeft, ChevronRight, ExternalLink, X } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
@@ -65,6 +66,12 @@ export default function CertificationsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
           <div className="space-y-10 animate-fade-in">
             <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                <Link href="/formation#certifications" className="text-primary underline-offset-2 hover:underline">
+                  ← Retour au parcours
+                </Link>
+                {" · "}galerie des attestations
+              </p>
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground heading-professional">
                 Certificats & certifications
               </h1>

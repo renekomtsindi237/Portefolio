@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Réné KOMTSINDI — Élève ingénieur logiciel | Data Engineering",
   description:
-    "Portfolio de Réné Alban KOMTSINDI, élève ingénieur en 5e année (2026–2027), option génie logiciel, en spécialisation Data Engineering. Projets MicroRecouv, lakehouse, AquaSensus.",
+    "Portfolio de Réné Alban KOMTSINDI, élève ingénieur en 5e année (2026–2027). Software Engineering et Data Engineering. Projets MicroRecouv, lakehouse, AquaSensus.",
   generator: "v0.app",
 }
 

@@ -4,42 +4,49 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import SplitText from "@/components/ui/split-text"
-import { Github, Gitlab, Linkedin, Mail, ArrowRight, MapPin, Code, Database, Briefcase, FileDown } from "lucide-react"
+import { Github, Gitlab, Linkedin, Mail, ArrowRight, MapPin, Code, Database } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
 import { ProfileImage } from "@/components/profile-image"
 import Particles from "@/components/ui/Particles"
-import { CV_PDF_URL } from "@/lib/cv"
+import { PROFILE_SUMMARY } from "@/lib/cv"
 
-const highlights = [
+const siteMap = [
+  { name: "Accueil", href: "/", desc: "Présentation, double casquette, projets principaux" },
+  { name: "Parcours", href: "/formation", desc: "Formation, expériences, certifications" },
+  { name: "Projets", href: "/projets", desc: "Software Engineering + Data Engineering" },
+  { name: "Compétences", href: "/competences", desc: "Les deux piliers techniques" },
+  { name: "CV", href: "/cv", desc: "Aperçu + téléchargement" },
+  { name: "Contact", href: "/contact", desc: "LinkedIn, GitHub, email" },
+]
+
+const dualHat = [
   {
     icon: Code,
-    text: "5e année d'ingénierie, option génie logiciel — année académique 2026–2027",
-  },
-  {
-    icon: Briefcase,
-    text: "Stage chez Openxtech : plateforme de recouvrement MicroRecouv (apps, API, pipelines)",
+    title: "Software Engineering",
+    text: "Backends, APIs, applications web et mobile — Java/Spring, Angular, Flutter, React, Node.js.",
   },
   {
     icon: Database,
-    text: "Spécialisation Data Engineering : IBM Professional Certificate, lakehouse, Fabric",
+    title: "Data Engineering",
+    text: "Pipelines ETL/ELT, orchestration, qualité des données — Airflow, dbt, lakehouse, Fabric.",
   },
 ]
 
 const featuredProjects = [
   {
     title: "MicroRecouv",
-    tag: "Stage · Openxtech",
+    tag: "Projet phare · Software & Data",
     summary: "Collecte offline, API Spring Boot, entrepôt dbt/Airflow et scoring de risque pour IMF camerounaises.",
   },
   {
     title: "Lakehouse événementiel",
-    tag: "Data Engineering",
+    tag: "Projet personnel · Data & Software",
     summary: "Chaîne CDC → Bronze / Silver / Gold, qualité des données et alertes d'impayés en quasi temps réel.",
   },
   {
     title: "AquaSensus",
-    tag: "Génie logiciel",
+    tag: "Projet personnel · Software & Data",
     summary: "Suivi et maintenance prédictive des forages communautaires : Spring, Angular, Flutter et pipeline Python.",
   },
 ]
@@ -90,72 +97,49 @@ export default function Home() {
                 <p className="text-xl sm:text-2xl text-primary font-medium text-professional-lg">
                   Élève ingénieur logiciel — 5e année · option génie logiciel · Data Engineering
                 </p>
+                <p className="text-sm font-mono text-muted-foreground">
+                  Software Engineering &amp; Data Engineering
+                </p>
               </div>
 
               <p className="text-lg text-muted-foreground leading-relaxed text-pretty body-professional">
-                Je conçois des systèmes complets : APIs, applications web et mobile, puis la chaîne de données
-                qui les alimente. Mon fil conducteur est le même que sur le terrain — recouvrement microfinance,
-                forages communautaires, analytics cloud : rendre l&apos;information fiable, traçable et actionnable.
+                {PROFILE_SUMMARY}
               </p>
 
-              <div className="space-y-4">
-                {highlights.map((item) => {
+              <div className="grid sm:grid-cols-2 gap-4">
+                {dualHat.map((item) => {
                   const Icon = item.icon
                   return (
-                    <div
-                      key={item.text}
-                      className="flex items-start gap-3 p-3 bg-card border border-border rounded-lg hover:border-primary/50 transition-all duration-300"
-                    >
-                      <div className="p-2 bg-primary/10 rounded-lg shrink-0">
-                        <Icon className="h-4 w-4 text-primary" />
+                    <div key={item.title} className="p-4 bg-card border border-border rounded-xl">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="p-2 bg-primary/10 rounded-lg">
+                          <Icon className="h-4 w-4 text-primary" />
+                        </div>
+                        <h2 className="font-semibold text-foreground">{item.title}</h2>
                       </div>
-                      <span className="text-muted-foreground pt-1">{item.text}</span>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
                     </div>
                   )
                 })}
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <Button asChild size="lg" className="group bg-warm-gradient hover:opacity-90 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <Link href="/projets">
-                    Voir les projets
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Button asChild size="lg" className="group bg-warm-gradient hover:opacity-90 text-white border-0 shadow-lg">
+                  <Link href="/formation">
+                    Parcours
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-primary hover:text-white hover:bg-warm-gradient hover:border-primary border-2 border-primary/50 transition-all duration-300 font-semibold">
-                  <Link href="/contact">Me contacter</Link>
+                <Button asChild size="lg" variant="outline" className="text-primary border-2 border-primary/50">
+                  <Link href="/projets">Projets</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-2">
+                  <Link href="/cv">CV</Link>
+                </Button>
+                <Button asChild size="lg" variant="ghost">
+                  <Link href="/contact">Contact</Link>
                 </Button>
               </div>
-
-              <a
-                href={CV_PDF_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block overflow-hidden rounded-2xl border-2 border-primary/55 bg-gradient-to-br from-primary/20 via-card to-accent/15 p-5 sm:p-6 shadow-xl hover:border-primary hover:shadow-2xl hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <div className="absolute inset-0 bg-warm-gradient opacity-[0.08] group-hover:opacity-[0.14] transition-opacity" />
-                <div className="relative flex flex-col sm:flex-row sm:items-center gap-4">
-                  <div className="shrink-0 p-3 rounded-xl bg-warm-gradient text-white shadow-lg">
-                    <FileDown className="h-7 w-7" />
-                  </div>
-                  <div className="flex-1 min-w-0 space-y-1.5">
-                    <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-primary">
-                      Dossier candidat · 1 page
-                    </p>
-                    <p className="text-lg sm:text-xl font-bold text-foreground leading-snug">
-                      Ce n&apos;est pas un CV d&apos;étudiant parmi d&apos;autres.
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Apps et pipelines déjà livrés en entreprise, lakehouse, IBM Data Engineering, Microsoft Fabric.
-                      Une page. Chaque ligne a une preuve.
-                    </p>
-                  </div>
-                  <span className="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-xl bg-warm-gradient text-white font-semibold shadow-md group-hover:opacity-95">
-                    Ouvrir le CV
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </a>
 
               <div className="flex gap-4 pt-4">
                 <Button variant="ghost" size="icon" asChild className="hover:bg-primary/20 hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-primary/40">
@@ -210,11 +194,26 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-20 space-y-6 animate-fade-in">
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 animate-fade-in">
+            {siteMap.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-xl border border-border/60 bg-card/60 px-4 py-3 hover:border-primary/50 transition-colors"
+              >
+                <p className="text-sm font-semibold text-foreground">{item.name}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-16 space-y-6 animate-fade-in">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-semibold text-foreground heading-professional">Projets phares</h2>
-                <p className="text-muted-foreground mt-1">Ce que je peux montrer concrètement, pas une liste de technologies.</p>
+                <h2 className="text-2xl font-semibold text-foreground heading-professional">Projets principaux</h2>
+                <p className="text-muted-foreground mt-1">
+                  MicroRecouv combine les deux piliers. Lakehouse et AquaSensus sont des projets personnels.
+                </p>
               </div>
               <Button asChild variant="ghost" className="hidden sm:inline-flex text-primary">
                 <Link href="/projets">
@@ -303,7 +302,7 @@ function ProfilePanel() {
             </li>
             <li className="flex justify-between gap-4 border-b border-border/40 pb-2">
               <span>Orientation</span>
-              <span className="text-foreground font-medium text-right">Data Engineering</span>
+              <span className="text-foreground font-medium text-right">Software &amp; Data</span>
             </li>
             <li className="flex justify-between gap-4">
               <span>Établissement</span>

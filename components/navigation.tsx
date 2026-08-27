@@ -9,12 +9,18 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 const navItems = [
   { name: "Accueil", href: "/" },
-  { name: "Compétences", href: "/competences" },
-  { name: "Projets", href: "/projets" },
   { name: "Parcours", href: "/formation" },
-  { name: "Certifications", href: "/certifications" },
+  { name: "Projets", href: "/projets" },
+  { name: "Compétences", href: "/competences" },
+  { name: "CV", href: "/cv" },
   { name: "Contact", href: "/contact" },
 ]
+
+function isActivePath(href: string, pathname: string) {
+  if (href === "/") return pathname === "/"
+  if (href === "/formation") return pathname === "/formation" || pathname.startsWith("/certifications")
+  return pathname === href
+}
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -32,18 +38,18 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`relative text-sm font-medium transition-all duration-300 hover:text-primary group text-professional ${
-                  pathname === item.href ? "text-primary" : "text-foreground/80 dark:text-foreground"
+                  isActivePath(item.href, pathname) ? "text-primary" : "text-foreground/80 dark:text-foreground"
                 }`}
               >
                 {item.name}
                 <div className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-warm-gradient transition-all duration-300 group-hover:w-full ${
-                  pathname === item.href ? "w-full" : ""
+                  isActivePath(item.href, pathname) ? "w-full" : ""
                 }`}></div>
               </Link>
             ))}
@@ -75,7 +81,7 @@ export function Navigation() {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block py-3 px-4 text-base font-medium transition-all duration-300 hover:text-primary hover:bg-primary/10 rounded-lg ${
-                  pathname === item.href ? "text-primary bg-primary/10" : "text-foreground/80 dark:text-foreground"
+                  isActivePath(item.href, pathname) ? "text-primary bg-primary/10" : "text-foreground/80 dark:text-foreground"
                 }`}
               >
                 {item.name}

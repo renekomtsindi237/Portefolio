@@ -2,8 +2,6 @@ import { Navigation } from "@/components/navigation"
 import {
   Code2,
   Database,
-  Layers,
-  Wrench,
   BarChart3,
   Workflow,
   Users,
@@ -16,9 +14,10 @@ import {
   BookOpen,
 } from "lucide-react"
 
-const hardSkillCategories = [
+const pillars = [
   {
-    title: "Génie logiciel",
+    title: "Software Engineering",
+    lead: "APIs, backends, applications web et mobile",
     icon: Code2,
     skills: [
       "Python",
@@ -34,44 +33,42 @@ const hardSkillCategories = [
       "Flutter / Dart",
       "React Native",
       "Node.js / Express",
+      "API REST",
+      "Clean Architecture",
+      "UML",
     ],
   },
   {
     title: "Data Engineering",
+    lead: "Pipelines ETL/ELT, orchestration, CDC, streaming, qualité des données",
     icon: Workflow,
     skills: [
+      "Python / SQL",
       "Apache Airflow",
-      "Apache Kafka",
-      "Apache Spark",
       "dbt",
+      "Apache Spark",
+      "Apache Kafka",
       "Delta Lake",
-      "DuckDB",
-      "Microsoft Fabric",
-      "ETL / ELT",
       "CDC",
+      "ETL / ELT",
       "Architecture médallion",
       "Qualité & lignée des données",
+      "Microsoft Fabric",
+      "DuckDB",
     ],
   },
+]
+
+const supportCategories = [
   {
-    title: "Bases de données & stockage",
+    title: "Data / Infrastructure",
     icon: Database,
-    skills: ["PostgreSQL", "SQL", "MySQL", "NoSQL", "Redis", "MongoDB", "MinIO / S3", "Cloudflare R2"],
-  },
-  {
-    title: "Cloud, DevOps & observabilité",
-    icon: Wrench,
-    skills: ["Docker / Compose", "Linux / Shell", "Traefik", "Nginx", "Prometheus", "Grafana", "GitHub Actions", "Git"],
+    skills: ["PostgreSQL", "SQL", "MySQL", "MongoDB", "Redis", "MinIO / S3", "Docker / Compose", "Linux / Shell", "Nginx", "GitHub Actions", "Git", "Prometheus", "Grafana"],
   },
   {
     title: "Data science & analytics",
     icon: BarChart3,
     skills: ["Pandas", "NumPy", "XGBoost", "SHAP", "Spark ML", "Cognos / Looker", "Feature engineering"],
-  },
-  {
-    title: "Conception & qualité",
-    icon: Layers,
-    skills: ["API REST", "Clean Architecture", "UML", "JWT", "pytest", "Playwright", "Flyway"],
   },
 ]
 
@@ -166,11 +163,13 @@ const softSkills = [
 
 function SkillCard({
   title,
+  lead,
   icon: Icon,
   skills,
   index,
 }: {
   title: string
+  lead?: string
   icon: typeof Code2
   skills: string[]
   index: number
@@ -182,7 +181,7 @@ function SkillCard({
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="relative z-10 p-6">
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-2">
           <div className="p-2.5 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl group-hover:scale-110 transition-all duration-300">
             <Icon className="h-5 w-5 text-primary" />
           </div>
@@ -193,6 +192,7 @@ function SkillCard({
             <div className="w-0 group-hover:w-20 h-1 bg-warm-gradient transition-all duration-500 mt-0.5 rounded-full" />
           </div>
         </div>
+        {lead ? <p className="text-sm text-muted-foreground mb-4">{lead}</p> : null}
         <div className="flex flex-wrap gap-1.5">
           {skills.map((skill) => (
             <span
@@ -218,20 +218,36 @@ export default function CompetencesPage() {
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground heading-professional">Compétences</h1>
               <p className="text-lg text-muted-foreground max-w-3xl text-pretty body-professional">
-                Un mélange d&apos;école d&apos;ingénieur, de stage, de projets personnels et de certifications
-                (IBM Data Engineering, Microsoft Fabric) — pas seulement la stack des dépôts GitHub.
+                Deux piliers techniques, puis l&apos;infrastructure qui les soutient. Les outils viennent après le métier.
               </p>
             </div>
 
             <section className="space-y-6">
               <div>
-                <h2 className="text-2xl font-semibold text-foreground heading-professional">Hard skills</h2>
-                <p className="text-muted-foreground mt-1">
-                  Langages et outils : projets, cours, Django / React / React Native, pipelines et cloud.
-                </p>
+                <h2 className="text-2xl font-semibold text-foreground heading-professional">Les deux piliers</h2>
+                <p className="text-muted-foreground mt-1">Software Engineering et Data Engineering.</p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {hardSkillCategories.map((category, index) => (
+              <div className="grid md:grid-cols-2 gap-6">
+                {pillars.map((category, index) => (
+                  <SkillCard
+                    key={category.title}
+                    title={category.title}
+                    lead={category.lead}
+                    icon={category.icon}
+                    skills={category.skills}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </section>
+
+            <section className="space-y-6">
+              <div>
+                <h2 className="text-2xl font-semibold text-foreground heading-professional">Autour des deux piliers</h2>
+                <p className="text-muted-foreground mt-1">Bases, infrastructure, analytics.</p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                {supportCategories.map((category, index) => (
                   <SkillCard
                     key={category.title}
                     title={category.title}
@@ -317,11 +333,9 @@ export default function CompetencesPage() {
             </section>
 
             <div className="bg-card border border-border rounded-xl p-8">
-              <h2 className="text-2xl font-semibold text-foreground mb-4">Positionnement</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">En une phrase</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Développeur fullstack (Python/Django, React, React Native, Angular, Spring, Flutter) qui se spécialise en data
-                engineering. Ce qui me distingue côté soft skills : cadrer un vrai besoin, livrer un système complet,
-                et rendre une décision data explicable (qualité, lignée, contrainte terrain).
+                Livrer une application (Software Engineering) et la chaîne de données qui la rend utile (Data Engineering).
               </p>
             </div>
           </div>

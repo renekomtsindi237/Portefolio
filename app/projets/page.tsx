@@ -17,16 +17,16 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-type Category = "Tous" | "Data Engineering" | "Génie logiciel" | "Cloud"
+type Category = "Tous" | "Data Engineering" | "Software Engineering" | "Cloud"
 
-const filters: Category[] = ["Tous", "Data Engineering", "Génie logiciel", "Cloud"]
+const filters: Category[] = ["Tous", "Software Engineering", "Data Engineering", "Cloud"]
 
 const projects = [
   {
     title: "MicroRecouv",
     icon: Landmark,
-    categories: ["Data Engineering", "Génie logiciel"] as Category[],
-    role: "Stage · Openxtech · 2025–2026",
+    categories: ["Data Engineering", "Software Engineering"] as Category[],
+    role: "Projet phare · Stage Openxtech · Software & Data",
     featured: true,
     description:
       "Plateforme de centralisation, d'analyse et d'aide au recouvrement pour les institutions de microfinance au Cameroun. Les agents saisissent hors ligne, l'API déduplique, le pipeline calcule PAR / COBAC et un score de risque explicable priorise les dossiers.",
@@ -48,8 +48,8 @@ const projects = [
   {
     title: "Lakehouse événementiel",
     icon: Warehouse,
-    categories: ["Data Engineering"] as Category[],
-    role: "Spécialisation Data Engineering",
+    categories: ["Data Engineering", "Software Engineering"] as Category[],
+    role: "Projet personnel — Data Engineering & Software Engineering",
     featured: true,
     description:
       "Prototype de plateforme data pour le suivi des créances : capture CDC, couches Bronze / Silver / Gold, détection d'impayés en flux et en batch, gouvernance (qualité, lignée, audit, masquage) dans le chemin de traitement.",
@@ -70,8 +70,8 @@ const projects = [
   {
     title: "AquaSensus",
     icon: Droplets,
-    categories: ["Génie logiciel", "Data Engineering"] as Category[],
-    role: "Projet personnel",
+    categories: ["Software Engineering", "Data Engineering"] as Category[],
+    role: "Projet personnel — Data Engineering & Software Engineering",
     featured: true,
     description:
       "Plateforme collaborative de suivi et de maintenance prédictive des forages communautaires. Les habitants signalent, le comité priorise, un moteur explicable alerte avant la panne — sans capteurs IoT ni saisie de volumes d'eau.",
@@ -114,7 +114,7 @@ const projects = [
   {
     title: "ServantAssist",
     icon: Church,
-    categories: ["Génie logiciel"] as Category[],
+    categories: ["Software Engineering"] as Category[],
     role: "Plateforme complète",
     featured: false,
     description:
@@ -141,7 +141,7 @@ const projects = [
   {
     title: "AgriPrix Cameroun",
     icon: Wheat,
-    categories: ["Génie logiciel"] as Category[],
+    categories: ["Software Engineering"] as Category[],
     role: "Projet personnel",
     featured: false,
     description:
@@ -154,7 +154,7 @@ const projects = [
   {
     title: "Bibliothèque Numérique Camerounaise",
     icon: Library,
-    categories: ["Génie logiciel"] as Category[],
+    categories: ["Software Engineering"] as Category[],
     role: "Projet personnel",
     featured: false,
     description:
@@ -167,7 +167,7 @@ const projects = [
   {
     title: "Cineyang",
     icon: Clapperboard,
-    categories: ["Génie logiciel"] as Category[],
+    categories: ["Software Engineering"] as Category[],
     role: "Projet personnel",
     featured: false,
     description:
@@ -210,13 +210,45 @@ export default function ProjetsPage() {
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground heading-professional">Projets</h1>
               <p className="text-lg text-muted-foreground max-w-3xl text-pretty body-professional">
-                Une sélection tirée de mes dépôts GitHub. Filtrez par domaine : tous les projets, data engineering,
-                génie logiciel ou cloud.
+                Les preuves techniques, classées selon les deux mêmes piliers : Software Engineering et Data Engineering.
               </p>
             </div>
 
+            <div className="grid sm:grid-cols-2 gap-4">
+              <button
+                type="button"
+                onClick={() => setActive("Software Engineering")}
+                className={`text-left rounded-2xl border p-5 transition-all duration-300 ${
+                  active === "Software Engineering"
+                    ? "border-primary bg-primary/10"
+                    : "border-border/50 bg-card hover:border-primary/50"
+                }`}
+              >
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">Pilier 1</p>
+                <h2 className="text-xl font-semibold text-foreground mt-1">Software Engineering</h2>
+                <p className="text-sm text-muted-foreground mt-2">
+                  APIs, backends, applications web et mobile — Spring, Angular, Flutter, React.
+                </p>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActive("Data Engineering")}
+                className={`text-left rounded-2xl border p-5 transition-all duration-300 ${
+                  active === "Data Engineering"
+                    ? "border-primary bg-primary/10"
+                    : "border-border/50 bg-card hover:border-primary/50"
+                }`}
+              >
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">Pilier 2</p>
+                <h2 className="text-xl font-semibold text-foreground mt-1">Data Engineering</h2>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Pipelines, orchestration, CDC, qualité des données — Airflow, dbt, lakehouse.
+                </p>
+              </button>
+            </div>
+
             <div className="space-y-4">
-              <p className="text-sm font-medium text-foreground">Filtrer par domaine</p>
+              <p className="text-sm font-medium text-foreground">Ou filtrer précisément</p>
               <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrer les projets">
                 {filters.map((filter) => (
                   <button
