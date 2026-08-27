@@ -52,7 +52,7 @@ export const certificationCatalog: CatalogEntry[] = [
   {
     key: "Certification IBM Data Engineering.pdf",
     title: "IBM Data Engineering Professional Certificate",
-    issuer: "IBM · Coursera",
+    issuer: "IBM",
     track: "IBM Data Engineering",
     featured: true,
   },

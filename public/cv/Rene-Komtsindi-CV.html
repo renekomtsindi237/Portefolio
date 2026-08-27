@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Réné Alban KOMTSINDI — CV</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #111;
+      font-family: Calibri, "Segoe UI", Arial, Helvetica, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 68mm 142mm;
+      grid-template-rows: 73mm 1fr;
+      background: #fff;
+    }
+    .photo {
+      grid-column: 1;
+      grid-row: 1;
+      background: #eef1f4;
+      overflow: hidden;
+    }
+    .photo img {
+      width: 68mm;
+      height: 73mm;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+    .header {
+      grid-column: 2;
+      grid-row: 1;
+      padding: 4mm 6.5mm 3mm 6.5mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 0;
+    }
+    .name {
+      margin: 0;
+      font-size: 23pt;
+      font-weight: 800;
+      letter-spacing: 0.15px;
+      line-height: 1.05;
+    }
+    .role {
+      margin: 1.2mm 0 1.8mm;
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1a9b96;
+      line-height: 1.2;
+    }
+    .summary {
+      margin: 0 0 2mm;
+      font-size: 9.5pt;
+      line-height: 1.32;
+      color: #222;
+    }
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2mm 4mm;
+      margin-top: 0;
+      font-size: 9pt;
+      color: #222;
+    }
+    .contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.6mm;
+      min-width: 0;
+    }
+    .contact a { word-break: break-word; }
+    .contact svg { width: 4mm; height: 4mm; flex-shrink: 0; fill: #1a9b96; }
+    .sidebar {
+      grid-column: 1;
+      grid-row: 2;
+      background: #628fd2;
+      color: #0c1220;
+      padding: 4.5mm 4.8mm 5mm 5.2mm;
+    }
+    .main {
+      grid-column: 2;
+      grid-row: 2;
+      padding: 3.5mm 6.5mm 4mm 6.5mm;
+    }
+    .side-title, .main-title {
+      margin: 0 0 1.8mm;
+      font-size: 13.5pt;
+      font-weight: 800;
+      color: #111;
+      line-height: 1.1;
+    }
+    .side-title { margin-top: 3.2mm; }
+    .side-title:first-child { margin-top: 0; }
+    .cat {
+      margin: 1.5mm 0 0.4mm;
+      font-size: 9.6pt;
+      font-weight: 800;
+    }
+    .sidebar ul, .main ul {
+      margin: 0 0 0.5mm;
+      padding-left: 4mm;
+    }
+    .sidebar li, .main li {
+      font-size: 9pt;
+      line-height: 1.28;
+      margin: 0 0 0.45mm;
+    }
+    .sidebar b, .main b { font-weight: 700; }
+    .lang { font-size: 9pt; line-height: 1.32; margin: 0 0 0.8mm; }
+    .lang b { display: block; font-size: 9.5pt; }
+    .timeline { position: relative; margin: 0 0 2.2mm; padding-left: 4.2mm; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 1.05mm;
+      top: 2.2mm;
+      bottom: 0.8mm;
+      width: 0.45mm;
+      background: #cfd4da;
+    }
+    .item { position: relative; margin: 0 0 1.6mm; }
+    .item:last-child { margin-bottom: 0; }
+    .item::before {
+      content: "";
+      position: absolute;
+      left: -4.2mm;
+      top: 1.6mm;
+      width: 2.2mm;
+      height: 2.2mm;
+      border-radius: 50%;
+      background: #fff;
+      border: 0.45mm solid #8a9098;
+      z-index: 1;
+    }
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 2.5mm;
+      align-items: baseline;
+    }
+    .teal {
+      margin: 0;
+      font-size: 10pt;
+      font-weight: 800;
+      color: #1a9b96;
+      line-height: 1.18;
+    }
+    .date {
+      font-size: 8.6pt;
+      color: #6b6b6b;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .org {
+      margin: 0.2mm 0 0.4mm;
+      font-size: 9.2pt;
+      font-weight: 800;
+      color: #111;
+    }
+    .ctx {
+      margin: -0.2mm 0 0.4mm;
+      font-size: 8.5pt;
+      font-style: italic;
+      color: #1a9b96;
+    }
+    .interests { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2mm; }
+    .interests p { margin: 0; font-size: 8.8pt; line-height: 1.26; }
+    .interests .teal { font-size: 9.5pt; margin-bottom: 0.2mm; }
+    @media print {
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .page { page-break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="photo">
+      <img src="photo.jpg" alt="Réné Alban KOMTSINDI" />
+    </div>
+
+    <header class="header">
+      <div>
+        <h1 class="name">Réné Alban KOMTSINDI</h1>
+        <p class="role">Élève ingénieur logiciel — 5e année | Data Engineering</p>
+        <p class="summary">
+          Élève ingénieur en 5e année à l'Institut universitaire Saint Jean du Cameroun (entrée en 2022),
+          option génie logiciel, spécialisé en data engineering. Stages : <b>Flore Services</b>,
+          <b>TrustFolio</b> (Trust SARL), puis <b>MicroRecouv</b> chez Openxtech (génie logiciel et data engineering).
+          Certifié <b>IBM Data Engineering</b> et <b>Microsoft Fabric Data Engineer</b>.
+        </p>
+      </div>
+      <div class="contact">
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <a href="mailto:renekomtsindi7@gmail.com">renekomtsindi7@gmail.com</a>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm7.4 6h-3.1c-.4-1.5-1-2.9-1.7-4.1 1.9.7 3.5 2.2 4.8 4.1zM12 4.1c.9 1.4 1.6 3 2 4.9H10c.4-1.9 1.1-3.5 2-4.9zM4.3 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2h3.5c-.1.7-.1 1.3-.1 2s0 1.3.1 2H4.3zm.3 2h3.1c.4 1.5 1 2.9 1.7 4.1-1.9-.7-3.5-2.2-4.8-4.1zM10 19.9c-.9-1.4-1.6-3-2-4.9h4c-.4 1.9-1.1 3.5-2 4.9zM16.2 16H19.3c-1.3 1.9-2.9 3.4-4.8 4.1.7-1.2 1.3-2.6 1.7-4.1zm.3-2c.1-.7.1-1.3.1-2s0-1.3-.1-2h3.5c.2.6.3 1.3.3 2s-.1 1.4-.3 2h-3.5zM16.2 8h3.1c-1.3-1.9-2.9-3.4-4.8-4.1.7 1.2 1.3 2.6 1.7 4.1z"/></svg>
+          <a href="https://portefolio.rene.it.com/">portefolio.rene.it.com</a>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+          Yaoundé — ouvert au remote
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3A12 12 0 0 0 8.2 23.6c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.7 4.7 18.7 5 18.7 5c.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+          <a href="https://github.com/renekomtsindi237">github.com/renekomtsindi237</a>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V10.7H5.7v7.6h2.6zM7 9.5c.9 0 1.5-.6 1.5-1.4C8.5 7.4 7.9 6.8 7 6.8s-1.5.6-1.5 1.3c0 .8.6 1.4 1.5 1.4zm11.3 8.8v-4.1c0-2.2-1.2-3.2-2.8-3.2-1.3 0-1.8.7-2.1 1.2v-1H10.8c0 1.1 0 7.6 0 7.6h2.6v-4.2c0-.2 0-.5.1-.6.2-.5.7-1 1.5-1 1 0 1.5.8 1.5 2v3.9h2.6z"/></svg>
+          <a href="https://www.linkedin.com/in/r%C3%A9n%C3%A9-komtsindi-b4052131b/">linkedin.com/in/réné-komtsindi-b4052131b</a>
+        </span>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <h2 class="side-title">Compétences</h2>
+      <p class="cat">Génie logiciel</p>
+      <ul>
+        <li><b>Java / Spring Boot</b>, Python / <b>Django</b>, FastAPI, Flask</li>
+        <li><b>Angular</b>, React, Next.js, <b>Flutter</b>, <b>React Native</b>, Node.js</li>
+        <li>API REST, Clean Architecture, UML</li>
+      </ul>
+      <p class="cat">Data engineering</p>
+      <ul>
+        <li><b>Apache Airflow</b>, <b>dbt</b>, Spark, Kafka</li>
+        <li><b>Delta Lake</b>, CDC, ETL/ELT, qualité des données</li>
+        <li><b>Microsoft Fabric</b>, DuckDB, scoring (XGBoost, SHAP)</li>
+      </ul>
+      <p class="cat">Données, cloud &amp; DevOps</p>
+      <ul>
+        <li><b>PostgreSQL</b>, MySQL, Redis, MongoDB</li>
+        <li><b>Docker</b>, Linux, Git, GitHub Actions</li>
+        <li>Nginx, Traefik, Prometheus, Grafana</li>
+      </ul>
+
+      <h2 class="side-title">Certifications</h2>
+      <ul>
+        <li><b>IBM Data Engineering</b> Professional Certificate</li>
+        <li><b>Microsoft Fabric Data Engineer</b></li>
+      </ul>
+
+      <h2 class="side-title">Langues</h2>
+      <p class="lang"><b>Français</b>Langue native</p>
+      <p class="lang"><b>Anglais</b>Niveau A2 – B1</p>
+
+      <h2 class="side-title">Atouts</h2>
+      <ul>
+        <li>Analyse de besoin et esprit de synthèse</li>
+        <li>Autonomie et responsabilité de bout en bout</li>
+        <li>Esprit d'équipe et agilité de livraison</li>
+        <li>Communication métier</li>
+        <li>Rigueur et orientation résultat</li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <h2 class="main-title">Diplômes et Formations</h2>
+      <div class="timeline">
+        <div class="item">
+          <div class="item-head">
+            <p class="teal">CYCLE D'INGÉNIEUR — Option génie logiciel</p>
+            <span class="date">Depuis 2022</span>
+          </div>
+          <p class="org">Institut universitaire Saint Jean du Cameroun (IUSJC) — Yaoundé</p>
+          <ul>
+            <li>5e année (2026–2027), informatique et SI ; recentrage <b>data engineering</b>.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <p class="teal">BACCALAURÉAT SÉRIE D</p>
+            <span class="date">2021</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="main-title">Projets phares</h2>
+      <div class="item" style="padding-left: 0;">
+        <p class="teal">MicroRecouv — plateforme de recouvrement IMF</p>
+        <p class="ctx">Stage Openxtech — génie logiciel et data engineering / 2026</p>
+        <ul>
+          <li><b>Business :</b> aider les IMF à collecter sur le terrain et à prioriser les dossiers de recouvrement (PAR, COBAC, scoring).</li>
+          <li><b>Technique :</b> génie logiciel — saisie <b>Flutter</b> hors ligne, API <b>Spring Boot</b> / <b>PostgreSQL</b>, interfaces <b>Angular</b> ; data engineering — pipeline <b>Airflow / dbt</b>, scoring explicable (<b>XGBoost</b>, <b>SHAP</b>).</li>
+        </ul>
+      </div>
+      <div class="item" style="padding-left: 0;">
+        <p class="teal">Lakehouse événementiel</p>
+        <p class="ctx">Projet personnel — data engineering et génie logiciel</p>
+        <ul>
+          <li><b>Business :</b> rendre les données de créances fiables et actionnables (alertes d'impayés, audit, lignée) pour la décision.</li>
+          <li><b>Technique :</b> data engineering — CDC <b>PostgreSQL → Redpanda</b>, couches Bronze / Silver / Gold (<b>Delta Lake</b>), <b>dbt / DuckDB</b> ; génie logiciel — API <b>FastAPI</b> (alertes, lignée, audit).</li>
+        </ul>
+      </div>
+      <div class="item" style="padding-left: 0;">
+        <p class="teal">AquaSensus — maintenance prédictive de forages</p>
+        <p class="ctx">Projet personnel — génie logiciel et data engineering</p>
+        <ul>
+          <li><b>Business :</b> maintenir les forages communautaires sans capteurs IoT : signalement habitants, priorisation comité, alerte avant panne.</li>
+          <li><b>Technique :</b> génie logiciel — <b>Java 21 / Spring</b>, PWA <b>Angular</b>, <b>Flutter</b>, <b>Docker</b> ; data engineering — pipeline Python de santé des ouvrages.</li>
+        </ul>
+      </div>
+
+      <h2 class="main-title">Expériences professionnelles</h2>
+      <div class="timeline">
+        <div class="item">
+          <div class="item-head">
+            <p class="teal">Stagiaire génie logiciel &amp; data engineering — 4e année</p>
+            <span class="date">Mai 2026 – sept. 2026</span>
+          </div>
+          <p class="org">Openxtech — Yaoundé</p>
+          <ul>
+            <li><b>MicroRecouv</b> : applications métier et chaîne data (ingestion, PAR / COBAC, scoring de recouvrement).</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <p class="teal">Stagiaire développement logiciel — 3e année</p>
+            <span class="date">Juin 2025 – août 2025</span>
+          </div>
+          <p class="org">Trust SARL — Yaoundé</p>
+          <ul>
+            <li>Développement logiciel sur <b>TrustFolio</b> : backend, frontend et analyse de données.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <p class="teal">Stagiaire — 1re année</p>
+            <span class="date">Juin 2023 – juil. 2023</span>
+          </div>
+          <p class="org">Flore Services</p>
+          <ul>
+            <li>Première immersion professionnelle en entreprise, en 1re année du cycle d'ingénieur.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="main-title">Centres d'intérêts</h2>
+      <div class="interests">
+        <div>
+          <p class="teal">Veille tech</p>
+          <p>IA, hardware, startups, documentaires tech.</p>
+        </div>
+        <div>
+          <p class="teal">Sports</p>
+          <p>Football, basketball, volley-ball.</p>
+        </div>
+        <div>
+          <p class="teal">Créativité et culture</p>
+          <p>Musique, lecture, danse, dessin.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

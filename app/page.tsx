@@ -4,11 +4,12 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import SplitText from "@/components/ui/split-text"
-import { Github, Gitlab, Linkedin, Mail, ArrowRight, MapPin, Code, Database, Briefcase } from "lucide-react"
+import { Github, Gitlab, Linkedin, Mail, ArrowRight, MapPin, Code, Database, Briefcase, FileDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Navigation } from "@/components/navigation"
 import { ProfileImage } from "@/components/profile-image"
 import Particles from "@/components/ui/Particles"
+import { CV_PDF_URL } from "@/lib/cv"
 
 const highlights = [
   {
@@ -48,6 +49,7 @@ const favoriteTechs = [
   "Python / FastAPI",
   "Angular",
   "Flutter",
+  "React Native",
   "PostgreSQL",
   "Airflow · dbt",
   "Docker",
@@ -79,7 +81,7 @@ export default function Home() {
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground text-balance leading-tight heading-professional">
                   <SplitText text="Réné" delay={0.2} />{" "}
                   <SplitText
-                    text="Komtsindi"
+                    text="KOMTSINDI"
                     className="text-warm-gradient"
                     delay={0.5}
                   />
@@ -123,12 +125,18 @@ export default function Home() {
                 <Button asChild variant="outline" size="lg" className="text-primary hover:text-white hover:bg-warm-gradient hover:border-primary border-2 border-primary/50 transition-all duration-300 font-semibold">
                   <Link href="/contact">Me contacter</Link>
                 </Button>
+                <Button asChild variant="outline" size="lg" className="border-border">
+                  <a href={CV_PDF_URL} target="_blank" rel="noopener noreferrer">
+                    <FileDown className="mr-2 h-4 w-4" />
+                    CV
+                  </a>
+                </Button>
               </div>
 
               <div className="flex gap-4 pt-4">
                 <Button variant="ghost" size="icon" asChild className="hover:bg-primary/20 hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-primary/40">
                   <a
-                    href="https://www.linkedin.com/in/rene-komtsindi"
+                    href="https://www.linkedin.com/in/r%C3%A9n%C3%A9-komtsindi-b4052131b/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
@@ -245,7 +253,7 @@ function ProfilePanel() {
   return (
     <div className="space-y-6">
       <div className="relative">
-        <ProfileImage className="w-48 h-60 mx-auto lg:w-full lg:max-w-sm lg:h-auto hover:scale-105 transition-transform duration-500" />
+        <ProfileImage className="w-48 h-60 mx-auto lg:w-full lg:max-w-sm lg:h-[28rem] hover:scale-105 transition-transform duration-500" />
         <div className="absolute -top-2 -right-2 w-4 h-4 bg-warm-gradient rounded-full animate-pulse"></div>
         <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-warm-gradient rounded-full animate-pulse delay-300"></div>
       </div>

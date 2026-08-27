@@ -69,8 +69,8 @@ export default function CertificationsPage() {
                 Certificats & certifications
               </h1>
               <p className="text-lg text-muted-foreground max-w-3xl text-pretty body-professional">
-                Professional Certificate IBM Data Engineering, modules Coursera associés, et parcours Microsoft
-                Fabric. Cliquez une carte pour prévisualiser le PDF.
+                Professional Certificate IBM Data Engineering, modules associés, et parcours Microsoft Fabric. Cliquez
+                une carte pour prévisualiser le PDF.
               </p>
             </div>
 

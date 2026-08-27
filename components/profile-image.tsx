@@ -26,20 +26,17 @@ export function ProfileImage({ className = "" }: ProfileImageProps) {
   return (
     <div className={`relative overflow-hidden rounded-2xl ${className}`}>
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl"></div>
-      <div className="relative">
-        <Image
-          src="/images/profile.jpg"
-          alt="Réné Komtsindi — élève ingénieur logiciel"
-          width={400}
-          height={500}
-          className="w-full h-auto object-cover rounded-2xl shadow-lg"
-          onError={() => setImageError(true)}
-          priority
-          quality={90}
-        />
-        {/* Overlay gradient for professional look */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl"></div>
-      </div>
+      <Image
+        src="/images/profile.jpg"
+        alt="Réné KOMTSINDI — élève ingénieur logiciel"
+        fill
+        sizes="(max-width: 1024px) 12rem, 24rem"
+        className="object-cover object-[center_22%] rounded-2xl shadow-lg"
+        onError={() => setImageError(true)}
+        priority
+        quality={92}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-2xl"></div>
     </div>
   )
 }

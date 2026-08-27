@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/navigation"
-import { Mail, Linkedin, Github, Gitlab, Send } from "lucide-react"
+import { Mail, Linkedin, Github, Gitlab, Send, FileDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { CV_PDF_URL } from "@/lib/cv"
 
 const contactMethods = [
   {
@@ -11,9 +12,16 @@ const contactMethods = [
     description: "Candidatures, stages, PFE et collaborations",
   },
   {
+    name: "CV (PDF)",
+    value: "CV-Rene-Komtsindi.pdf",
+    href: CV_PDF_URL,
+    icon: FileDown,
+    description: "CV public, une page — génie logiciel et data engineering",
+  },
+  {
     name: "LinkedIn",
-    value: "Rene Komtsindi",
-    href: "https://www.linkedin.com/in/rene-komtsindi",
+    value: "Réné KOMTSINDI",
+    href: "https://www.linkedin.com/in/r%C3%A9n%C3%A9-komtsindi-b4052131b/",
     icon: Linkedin,
     description: "Parcours et échanges professionnels",
   },
@@ -89,16 +97,24 @@ export default function ContactPage() {
                 </div>
                 <h2 className="text-2xl font-semibold text-foreground">Ce que je peux apporter</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Un profil capable de livrer une application (Spring, Angular, Flutter) et la chaîne de données
+                  Un profil capable de livrer une application (Spring, Angular, Flutter, React Native) et la chaîne de données
                   qui la rend utile (Airflow, dbt, lakehouse, qualité). Idéal pour une équipe data, un éditeur
                   métier ou une IMF / fintech qui a besoin d&apos;ingénierie de bout en bout.
                 </p>
-                <Button size="lg" asChild>
-                  <a href="mailto:renekomtsindi7@gmail.com">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Envoyer un email
-                  </a>
-                </Button>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Button size="lg" asChild>
+                    <a href="mailto:renekomtsindi7@gmail.com">
+                      <Mail className="mr-2 h-4 w-4" />
+                      Envoyer un email
+                    </a>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <a href={CV_PDF_URL} target="_blank" rel="noopener noreferrer">
+                      <FileDown className="mr-2 h-4 w-4" />
+                      Télécharger le CV (PDF)
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
 

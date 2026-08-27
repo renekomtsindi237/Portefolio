@@ -32,6 +32,7 @@ const hardSkillCategories = [
       "Next.js",
       "Angular",
       "Flutter / Dart",
+      "React Native",
       "Node.js / Express",
     ],
   },
@@ -226,7 +227,7 @@ export default function CompetencesPage() {
               <div>
                 <h2 className="text-2xl font-semibold text-foreground heading-professional">Hard skills</h2>
                 <p className="text-muted-foreground mt-1">
-                  Langages et outils : projets, cours, Django / React, pipelines et cloud.
+                  Langages et outils : projets, cours, Django / React / React Native, pipelines et cloud.
                 </p>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -318,7 +319,7 @@ export default function CompetencesPage() {
             <div className="bg-card border border-border rounded-xl p-8">
               <h2 className="text-2xl font-semibold text-foreground mb-4">Positionnement</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Développeur fullstack (Python/Django, React, Angular, Spring, Flutter) qui se spécialise en data
+                Développeur fullstack (Python/Django, React, React Native, Angular, Spring, Flutter) qui se spécialise en data
                 engineering. Ce qui me distingue côté soft skills : cadrer un vrai besoin, livrer un système complet,
                 et rendre une décision data explicable (qualité, lignée, contrainte terrain).
               </p>

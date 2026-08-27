@@ -71,7 +71,7 @@ const projects = [
     title: "AquaSensus",
     icon: Droplets,
     categories: ["Génie logiciel", "Data Engineering"] as Category[],
-    role: "Projet d'ingénierie",
+    role: "Projet personnel",
     featured: true,
     description:
       "Plateforme collaborative de suivi et de maintenance prédictive des forages communautaires. Les habitants signalent, le comité priorise, un moteur explicable alerte avant la panne — sans capteurs IoT ni saisie de volumes d'eau.",
