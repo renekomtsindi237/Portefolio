@@ -16,7 +16,7 @@ const contactMethods = [
     value: "CV-Rene-Komtsindi.pdf",
     href: CV_PDF_URL,
     icon: FileDown,
-    description: "CV public, une page — génie logiciel et data engineering",
+    description: "Dossier 1 page : apps, pipelines, IBM et Fabric — des preuves, pas une liste.",
   },
   {
     name: "LinkedIn",
@@ -55,6 +55,36 @@ export default function ContactPage() {
                 en génie logiciel ou data engineering.
               </p>
             </div>
+
+            <a
+              href={CV_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block overflow-hidden rounded-2xl border-2 border-primary/55 bg-gradient-to-br from-primary/20 via-card to-accent/15 p-6 sm:p-8 hover:border-primary hover:shadow-2xl hover:shadow-primary/15 hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <div className="absolute inset-0 bg-warm-gradient opacity-[0.08] group-hover:opacity-[0.14] transition-opacity" />
+              <div className="relative flex flex-col sm:flex-row sm:items-center gap-5">
+                <div className="shrink-0 p-4 rounded-2xl bg-warm-gradient text-white shadow-lg">
+                  <FileDown className="h-8 w-8" />
+                </div>
+                <div className="flex-1 space-y-2">
+                  <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-primary">
+                    Dossier candidat · 1 page
+                  </p>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-foreground heading-professional">
+                    Ce n&apos;est pas un CV d&apos;étudiant parmi d&apos;autres.
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                    Génie logiciel et data engineering déjà mis en production : MicroRecouv, lakehouse, IBM,
+                    Fabric. Une page dense, sans remplissage — pour un recruteur qui veut juger sur pièces.
+                  </p>
+                </div>
+                <span className="shrink-0 inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-warm-gradient text-white font-semibold shadow-md">
+                  Ouvrir le CV
+                  <FileDown className="ml-2 h-4 w-4" />
+                </span>
+              </div>
+            </a>
 
             <div className="grid md:grid-cols-2 gap-8">
               {contactMethods.map((method, index) => {
@@ -108,10 +138,10 @@ export default function ContactPage() {
                       Envoyer un email
                     </a>
                   </Button>
-                  <Button size="lg" variant="outline" asChild>
+                  <Button size="lg" className="bg-warm-gradient text-white border-0" asChild>
                     <a href={CV_PDF_URL} target="_blank" rel="noopener noreferrer">
                       <FileDown className="mr-2 h-4 w-4" />
-                      Télécharger le CV (PDF)
+                      Ouvrir le CV — preuves à l&apos;appui
                     </a>
                   </Button>
                 </div>

@@ -125,13 +125,37 @@ export default function Home() {
                 <Button asChild variant="outline" size="lg" className="text-primary hover:text-white hover:bg-warm-gradient hover:border-primary border-2 border-primary/50 transition-all duration-300 font-semibold">
                   <Link href="/contact">Me contacter</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-border">
-                  <a href={CV_PDF_URL} target="_blank" rel="noopener noreferrer">
-                    <FileDown className="mr-2 h-4 w-4" />
-                    CV
-                  </a>
-                </Button>
               </div>
+
+              <a
+                href={CV_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block overflow-hidden rounded-2xl border-2 border-primary/55 bg-gradient-to-br from-primary/20 via-card to-accent/15 p-5 sm:p-6 shadow-xl hover:border-primary hover:shadow-2xl hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-warm-gradient opacity-[0.08] group-hover:opacity-[0.14] transition-opacity" />
+                <div className="relative flex flex-col sm:flex-row sm:items-center gap-4">
+                  <div className="shrink-0 p-3 rounded-xl bg-warm-gradient text-white shadow-lg">
+                    <FileDown className="h-7 w-7" />
+                  </div>
+                  <div className="flex-1 min-w-0 space-y-1.5">
+                    <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-primary">
+                      Dossier candidat · 1 page
+                    </p>
+                    <p className="text-lg sm:text-xl font-bold text-foreground leading-snug">
+                      Ce n&apos;est pas un CV d&apos;étudiant parmi d&apos;autres.
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Apps et pipelines déjà livrés en entreprise, lakehouse, IBM Data Engineering, Microsoft Fabric.
+                      Une page. Chaque ligne a une preuve.
+                    </p>
+                  </div>
+                  <span className="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-xl bg-warm-gradient text-white font-semibold shadow-md group-hover:opacity-95">
+                    Ouvrir le CV
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </div>
+              </a>
 
               <div className="flex gap-4 pt-4">
                 <Button variant="ghost" size="icon" asChild className="hover:bg-primary/20 hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-primary/40">
