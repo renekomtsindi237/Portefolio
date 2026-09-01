@@ -47,6 +47,9 @@ const pillars = [
       "Apache Airflow",
       "dbt",
       "Apache Spark",
+      "PySpark",
+      "Scala",
+      "Snowflake",
       "Apache Kafka",
       "Delta Lake",
       "CDC",
@@ -139,9 +142,9 @@ const softSkills = [
     title: "Autonomie et apprentissage dirigé",
     kind: "Essentielle",
     icon: BookOpen,
-    evidence: "IBM Data Engineering · Microsoft Fabric · lakehouse",
+    evidence: "IBM Data Engineering · Spark / PySpark · Snowflake · Fabric · lakehouse",
     description:
-      "Aller chercher une compétence quand le projet l'exige, puis la figer (certificat, module, prototype). Le Professional Certificate IBM et Fabric ne remplacent pas le code : ils structurent ce que je mets ensuite en pratique.",
+      "Aller chercher une compétence quand le projet l'exige, puis la figer (certificat, module, prototype). IBM, Fabric, Spark et Snowflake ne remplacent pas le code : ils structurent ce que je mets ensuite en pratique.",
   },
   {
     title: "Éthique et gouvernance des données",

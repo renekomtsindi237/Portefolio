@@ -1,8 +1,6 @@
+/** URL publique R2 du CV à jour (aperçu, LinkedIn, partage, téléchargement). */
 export const CV_PDF_URL =
-  "https://pub-091a142b5c9e4af083db4d5d261514f7.r2.dev/CV-Rene-Komtsindi.pdf"
-
-/** Aperçu intégré au portfolio (fichier local, le visiteur reste sur le site). */
-export const CV_SITE_PDF = "/cv/Rene-Komtsindi-CV.pdf"
+  "https://pub-091a142b5c9e4af083db4d5d261514f7.r2.dev/CV%20KOMTSINDI%20R%C3%A9n%C3%A9.pdf"
 
 export const PROFILE_HEADLINE = "Élève ingénieur logiciel — 5e année | Data Engineering"
 

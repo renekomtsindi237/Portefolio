@@ -25,3 +25,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# CV généré (source = public/cv/*.html + photo.jpg ; PDF public = R2)
+public/cv/*.pdf
+public/cv/*.txt
+public/cv/*preview*.png
+public/cv/*-check.png
+/CV-Rene-Komtsindi.pdf
+/CV-Rene-Komtsindi-preview.png
+/CV-photo-check.png

@@ -69,8 +69,8 @@ const certifications: Entry[] = [
     institution: "IBM",
     status: "Obtenu",
     description:
-      "Parcours professionnel complet : Python, SQL, ETL, entrepôts, NoSQL, Spark, Airflow / Kafka, capstone et préparation aux entretiens. Mis en pratique sur le lakehouse événementiel et le pipeline MicroRecouv.",
-    skills: ["ETL", "Data warehousing", "Apache Spark", "SQL", "Airflow", "Kafka"],
+      "Parcours professionnel complet : Python, SQL, ETL, entrepôts, NoSQL, Spark, Airflow / Kafka, capstone et préparation aux entretiens. Approfondi ensuite par des modules Spark / PySpark / Scala (ETL, workflows, traitement, modèles prédictifs). Mis en pratique sur le lakehouse événementiel et le pipeline MicroRecouv.",
+    skills: ["ETL", "Data warehousing", "Apache Spark", "PySpark", "SQL", "Airflow", "Kafka"],
     icon: Award,
   },
   {
@@ -80,6 +80,15 @@ const certifications: Entry[] = [
     description:
       "Certification Microsoft Fabric Data Engineer : fondations et environnement, préparation des données pour l'analytique, orchestration de pipelines. Complète le socle IBM vers une plateforme data cloud Microsoft.",
     skills: ["Microsoft Fabric", "Pipelines", "Préparation de données", "Analytics"],
+    icon: Award,
+  },
+  {
+    title: "Apache Spark, PySpark, Scala et Snowflake",
+    institution: "Coursera · Snowflake",
+    status: "Obtenu · 2026",
+    description:
+      "Approfondissement pratique au-delà du module Spark d'IBM : construction et analyse de données avec Scala, pipelines ETL Spark, workflows big data, traitement PySpark, et introduction à l'ingénierie des données moderne avec Snowflake. Ce n'est pas un troisième Professional Certificate : ce sont des attestations ciblées, listées dans la galerie.",
+    skills: ["Apache Spark", "PySpark", "Scala", "ETL", "Snowflake"],
     icon: Award,
   },
 ]
@@ -183,8 +192,13 @@ export default function FormationPage() {
             <section id="certifications" className="space-y-6 scroll-mt-24">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-primary">3 · Certifications</p>
-                <h2 className="text-2xl font-semibold text-foreground heading-professional mt-1">IBM et Microsoft Fabric</h2>
-                <p className="text-muted-foreground mt-1">Deux certifications. La galerie des attestations PDF est à part.</p>
+                <h2 className="text-2xl font-semibold text-foreground heading-professional mt-1">
+                  IBM, Fabric, Spark et Snowflake
+                </h2>
+                <p className="text-muted-foreground mt-1">
+                  Deux certifications professionnelles, puis des modules d&apos;approfondissement. La galerie PDF est à
+                  part.
+                </p>
               </div>
               <div className="space-y-6">
                 {certifications.map((entry, index) => (

@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import {
-  CV_SITE_PDF,
+  CV_PDF_URL,
   PROFILE_HEADLINE,
   PROFILE_SUMMARY,
 } from "@/lib/cv"
@@ -58,7 +58,11 @@ const snapshot = [
     title: "Certifications",
     href: "/formation#certifications",
     icon: Award,
-    items: ["IBM Data Engineering Professional Certificate", "Microsoft Fabric Data Engineer"],
+    items: [
+      "IBM Data Engineering Professional Certificate",
+      "Microsoft Fabric Data Engineer",
+      "Apache Spark / PySpark / Scala · Snowflake",
+    ],
   },
 ]
 
@@ -91,7 +95,7 @@ export default function CvPage() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-2 border-primary/50">
-                <a href={CV_SITE_PDF} download="CV-Rene-Komtsindi.pdf">
+                <a href={CV_PDF_URL} download="CV-KOMTSINDI-Rene.pdf">
                   <Download className="mr-2 h-4 w-4" />
                   Télécharger mon CV (PDF)
                 </a>
@@ -169,13 +173,13 @@ export default function CvPage() {
               </div>
               <div className="flex flex-wrap gap-2">
                 <Button asChild variant="outline" size="sm">
-                  <a href={CV_SITE_PDF} target="_blank" rel="noopener noreferrer">
+                  <a href={CV_PDF_URL} target="_blank" rel="noopener noreferrer">
                     <Eye className="mr-2 h-3.5 w-3.5" />
                     Plein écran
                   </a>
                 </Button>
                 <Button asChild size="sm" className="bg-warm-gradient text-white border-0">
-                  <a href={CV_SITE_PDF} download="CV-Rene-Komtsindi.pdf">
+                  <a href={CV_PDF_URL} download="CV-KOMTSINDI-Rene.pdf">
                     <Download className="mr-2 h-3.5 w-3.5" />
                     Télécharger
                   </a>
@@ -185,13 +189,13 @@ export default function CvPage() {
 
             <div className="overflow-hidden rounded-2xl border-2 border-primary/30 bg-card shadow-xl">
               <object
-                data={`${CV_SITE_PDF}#view=FitH&toolbar=0`}
+                data={`${CV_PDF_URL}#view=FitH&toolbar=0`}
                 type="application/pdf"
                 className="w-full h-[min(160vh,1180px)] bg-muted/30"
                 aria-label="Aperçu du CV de Réné Alban KOMTSINDI"
               >
                 <iframe
-                  src={`${CV_SITE_PDF}#view=FitH`}
+                  src={`${CV_PDF_URL}#view=FitH`}
                   title="Aperçu du CV"
                   className="w-full h-[min(160vh,1180px)] border-0"
                 />
@@ -200,7 +204,7 @@ export default function CvPage() {
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <Button asChild variant="outline">
-                <a href={CV_SITE_PDF} download="CV-Rene-Komtsindi.pdf">
+                <a href={CV_PDF_URL} download="CV-KOMTSINDI-Rene.pdf">
                   <Download className="mr-2 h-4 w-4" />
                   Télécharger le CV
                 </a>

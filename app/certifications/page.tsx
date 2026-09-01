@@ -7,7 +7,13 @@ import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import type { CertificationAsset, CertificationTrack } from "@/lib/certifications"
 
-const filters: Array<"Tous" | CertificationTrack> = ["Tous", "IBM Data Engineering", "Microsoft Fabric"]
+const filters: Array<"Tous" | CertificationTrack> = [
+  "Tous",
+  "IBM Data Engineering",
+  "Microsoft Fabric",
+  "Apache Spark",
+  "Snowflake",
+]
 
 export default function CertificationsPage() {
   const [items, setItems] = useState<CertificationAsset[]>([])
@@ -76,8 +82,8 @@ export default function CertificationsPage() {
                 Certificats & certifications
               </h1>
               <p className="text-lg text-muted-foreground max-w-3xl text-pretty body-professional">
-                Professional Certificate IBM Data Engineering, modules associés, et parcours Microsoft Fabric. Cliquez
-                une carte pour prévisualiser le PDF.
+                Professional Certificate IBM, modules associés, Microsoft Fabric, approfondissement Apache Spark /
+                PySpark / Scala, et introduction Snowflake. Cliquez une carte pour prévisualiser le PDF.
               </p>
             </div>
 

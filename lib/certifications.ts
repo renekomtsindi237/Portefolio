@@ -1,6 +1,6 @@
 export const R2_PUBLIC_BASE = "https://pub-091a142b5c9e4af083db4d5d261514f7.r2.dev"
 
-export type CertificationTrack = "IBM Data Engineering" | "Microsoft Fabric"
+export type CertificationTrack = "IBM Data Engineering" | "Microsoft Fabric" | "Apache Spark" | "Snowflake"
 
 export type CertificationAsset = {
   key: string
@@ -153,6 +153,49 @@ export const certificationCatalog: CatalogEntry[] = [
     track: "IBM Data Engineering",
   },
   {
+    key: "Certificat Apache Spark with Scala Master Data Building & Analysis.pdf",
+    title: "Apache Spark with Scala — Data Building & Analysis",
+    issuer: "Coursera",
+    track: "Apache Spark",
+  },
+  {
+    key: "Certificat Apache Spark Design & Execute ETL Pipelines Hands-on.pdf",
+    title: "Apache Spark — Design & Execute ETL Pipelines",
+    issuer: "Coursera",
+    track: "Apache Spark",
+  },
+  {
+    key: "Certificat Apache Spark Apply & Evaluate Big Data Workflows.pdf",
+    title: "Apache Spark — Apply & Evaluate Big Data Workflows",
+    issuer: "Coursera",
+    track: "Apache Spark",
+  },
+  {
+    key: "Certificat PySpark & Python Hands-On Guide To Data Processing.pdf",
+    title: "PySpark & Python — Hands-On Data Processing",
+    issuer: "Coursera",
+    track: "Apache Spark",
+  },
+  {
+    key: "Certificat PySpark Apply & Analyze Advanced Data Processing.pdf",
+    title: "PySpark — Advanced Data Processing",
+    issuer: "Coursera",
+    track: "Apache Spark",
+  },
+  {
+    key: "Cerificat PySpark Apply & Evaluate Predictive ML Models.pdf",
+    title: "PySpark — Apply & Evaluate Predictive ML Models",
+    issuer: "Coursera",
+    track: "Apache Spark",
+  },
+  {
+    key: "Certificat Introduction to Modern Data Engineering with Snowflake.pdf",
+    title: "Introduction to Modern Data Engineering with Snowflake",
+    issuer: "Snowflake · Coursera",
+    track: "Snowflake",
+    featured: true,
+  },
+  {
     key: "Certificat Fabric Foundations and Environnement Management.pdf",
     title: "Fabric Foundations and Environment Management",
     issuer: "Microsoft",
@@ -183,7 +226,15 @@ export function assetFromKey(key: string, issuer?: string): CertificationAsset {
     key: clean,
     title: meta?.title || titleFromKey(clean),
     issuer: issuer || meta?.issuer,
-    track: meta?.track || (clean.toLowerCase().includes("fabric") ? "Microsoft Fabric" : "IBM Data Engineering"),
+    track:
+      meta?.track ||
+      (clean.toLowerCase().includes("fabric")
+        ? "Microsoft Fabric"
+        : clean.toLowerCase().includes("snowflake")
+          ? "Snowflake"
+          : /\b(spark|pyspark)\b/i.test(clean)
+            ? "Apache Spark"
+            : "IBM Data Engineering"),
     featured: meta?.featured,
     kind: kindFromKey(clean),
     src: publicObjectUrl(clean),

@@ -29,7 +29,7 @@ const dualHat = [
   {
     icon: Database,
     title: "Data Engineering",
-    text: "Pipelines ETL/ELT, orchestration, qualité des données — Airflow, dbt, lakehouse, Fabric.",
+    text: "Pipelines ETL/ELT, orchestration, qualité des données — Airflow, dbt, Spark, lakehouse, Fabric, Snowflake.",
   },
 ]
 
@@ -59,6 +59,7 @@ const favoriteTechs = [
   "React Native",
   "PostgreSQL",
   "Airflow · dbt",
+  "Spark · Snowflake",
   "Docker",
 ]
 
