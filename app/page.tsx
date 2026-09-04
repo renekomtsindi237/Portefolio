@@ -29,7 +29,7 @@ const dualHat = [
   {
     icon: Database,
     title: "Data Engineering",
-    text: "Pipelines ETL/ELT, orchestration, qualité des données — Airflow, dbt, Spark, lakehouse, Fabric, Snowflake.",
+    text: "Pipelines ETL/ELT, CDC, orchestration, qualité des données — Airflow, dbt, Spark, lakehouse (ADLS / Event Hubs), Fabric, Snowflake.",
   },
 ]
 
@@ -42,7 +42,7 @@ const featuredProjects = [
   {
     title: "Lakehouse événementiel",
     tag: "Projet personnel · Data & Software",
-    summary: "Chaîne CDC → Bronze / Silver / Gold, qualité des données et alertes d'impayés en quasi temps réel.",
+    summary: "CDC Postgres → Event Hubs, Delta sur ADLS Gen2 ; alertes d'impayés calculées sur le PC, complément du batch COBAC.",
   },
   {
     title: "AquaSensus",
@@ -59,6 +59,7 @@ const favoriteTechs = [
   "React Native",
   "PostgreSQL",
   "Airflow · dbt",
+  "ADLS · Event Hubs",
   "Spark · Snowflake",
   "Docker",
 ]

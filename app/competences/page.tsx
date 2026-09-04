@@ -51,6 +51,8 @@ const pillars = [
       "Scala",
       "Snowflake",
       "Apache Kafka",
+      "Azure Event Hubs",
+      "ADLS Gen2",
       "Delta Lake",
       "CDC",
       "ETL / ELT",
@@ -66,7 +68,7 @@ const supportCategories = [
   {
     title: "Data / Infrastructure",
     icon: Database,
-    skills: ["PostgreSQL", "SQL", "MySQL", "MongoDB", "Redis", "MinIO / S3", "Docker / Compose", "Linux / Shell", "Nginx", "GitHub Actions", "Git", "Prometheus", "Grafana"],
+    skills: ["PostgreSQL", "SQL", "MySQL", "MongoDB", "Redis", "ADLS Gen2", "MinIO / S3", "Docker / Compose", "Linux / Shell", "Nginx", "GitHub Actions", "Git", "Prometheus", "Grafana"],
   },
   {
     title: "Data science & analytics",
@@ -120,7 +122,7 @@ const softSkills = [
     icon: FileText,
     evidence: "Lakehouse · CI ServantAssist · TP Cloud",
     description:
-      "Une alerte, un score ou une mise en production doivent pouvoir se vérifier. Comparaison flux / batch, règles de qualité, tests, couverture, journal d'audit, retour d'incidents : je documente ce qui est vrai, pas seulement ce qui est prévu.",
+      "Une alerte, un score ou une mise en production doivent pouvoir se vérifier. Comparaison flux / batch, règles de qualité, tests, journal d'audit, Delta sur ADLS : je documente ce qui est vrai (y compris le calcul encore local), pas seulement ce qui est prévu.",
   },
   {
     title: "Communication avec le métier",
