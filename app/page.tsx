@@ -11,15 +11,6 @@ import { ProfileImage } from "@/components/profile-image"
 import Particles from "@/components/ui/Particles"
 import { PROFILE_SUMMARY } from "@/lib/cv"
 
-const siteMap = [
-  { name: "Accueil", href: "/", desc: "Présentation, double casquette, projets principaux" },
-  { name: "Parcours", href: "/formation", desc: "Formation, expériences, certifications" },
-  { name: "Projets", href: "/projets", desc: "Software Engineering + Data Engineering" },
-  { name: "Compétences", href: "/competences", desc: "Les deux piliers techniques" },
-  { name: "CV", href: "/cv", desc: "Aperçu + téléchargement" },
-  { name: "Contact", href: "/contact", desc: "LinkedIn, GitHub, email" },
-]
-
 const dualHat = [
   {
     icon: Code,
@@ -36,16 +27,19 @@ const dualHat = [
 const featuredProjects = [
   {
     title: "MicroRecouv",
+    href: "/projets#microrecouv",
     tag: "Projet phare · Software & Data",
     summary: "Collecte offline, API Spring Boot, entrepôt dbt/Airflow et scoring de risque pour IMF camerounaises.",
   },
   {
     title: "Lakehouse événementiel",
+    href: "/projets#lakehouse",
     tag: "Projet personnel · Data & Software",
     summary: "CDC Postgres → Event Hubs, Delta sur ADLS Gen2 ; alertes d'impayés calculées sur le PC, complément du batch COBAC.",
   },
   {
     title: "AquaSensus",
+    href: "/projets#aquasensus",
     tag: "Projet personnel · Software & Data",
     summary: "Suivi et maintenance prédictive des forages communautaires : Spring, Angular, Flutter et pipeline Python.",
   },
@@ -72,8 +66,8 @@ export default function Home() {
         <ThemedParticles />
 
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
@@ -127,24 +121,18 @@ export default function Home() {
 
               <div className="flex flex-wrap gap-3 pt-2">
                 <Button asChild size="lg" className="group bg-warm-gradient hover:opacity-90 text-white border-0 shadow-lg">
-                  <Link href="/formation">
-                    Parcours
+                  <Link href="/projets">
+                    Projets
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="text-primary border-2 border-primary/50">
-                  <Link href="/projets">Projets</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-2">
                   <Link href="/cv">CV</Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost">
-                  <Link href="/contact">Contact</Link>
-                </Button>
               </div>
 
               <div className="flex gap-4 pt-4">
-                <Button variant="ghost" size="icon" asChild className="hover:bg-primary/20 hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-primary/40">
+                <Button variant="ghost" size="icon" asChild className="hover:bg-primary/10 transition-colors">
                   <a
                     href="https://www.linkedin.com/in/r%C3%A9n%C3%A9-komtsindi-b4052131b/"
                     target="_blank"
@@ -154,7 +142,7 @@ export default function Home() {
                     <Linkedin className="h-6 w-6 text-primary" />
                   </a>
                 </Button>
-                <Button variant="ghost" size="icon" asChild className="hover:bg-primary/20 hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-primary/40">
+                <Button variant="ghost" size="icon" asChild className="hover:bg-primary/10 transition-colors">
                   <a
                     href="https://gitlab.com/renekomtsindi"
                     target="_blank"
@@ -164,7 +152,7 @@ export default function Home() {
                     <Gitlab className="h-6 w-6 text-primary" />
                   </a>
                 </Button>
-                <Button variant="ghost" size="icon" asChild className="hover:bg-primary/20 hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-primary/40">
+                <Button variant="ghost" size="icon" asChild className="hover:bg-primary/10 transition-colors">
                   <a
                     href="https://github.com/renekomtsindi237"
                     target="_blank"
@@ -174,7 +162,7 @@ export default function Home() {
                     <Github className="h-6 w-6 text-primary" />
                   </a>
                 </Button>
-                <Button variant="ghost" size="icon" asChild className="hover:bg-primary/20 hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-primary/40">
+                <Button variant="ghost" size="icon" asChild className="hover:bg-primary/10 transition-colors">
                   <a href="mailto:renekomtsindi7@gmail.com" aria-label="Email">
                     <Mail className="h-6 w-6 text-primary" />
                   </a>
@@ -187,29 +175,11 @@ export default function Home() {
             </div>
 
             <div className="hidden lg:block animate-fade-in">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-3xl blur-3xl animate-pulse"></div>
-                <div className="relative">
-                  <ProfilePanel />
-                </div>
-              </div>
+              <ProfilePanel />
             </div>
           </div>
 
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 animate-fade-in">
-            {siteMap.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-xl border border-border/60 bg-card/60 px-4 py-3 hover:border-primary/50 transition-colors"
-              >
-                <p className="text-sm font-semibold text-foreground">{item.name}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-16 space-y-6 animate-fade-in">
+          <div className="mt-20 space-y-6 animate-fade-in">
             <div className="flex items-end justify-between gap-4">
               <div>
                 <h2 className="text-2xl font-semibold text-foreground heading-professional">Projets principaux</h2>
@@ -228,8 +198,8 @@ export default function Home() {
               {featuredProjects.map((project) => (
                 <Link
                   key={project.title}
-                  href="/projets"
-                  className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 card-professional"
+                  href={project.href}
+                  className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-colors card-professional"
                 >
                   <p className="text-xs font-mono text-primary mb-2">{project.tag}</p>
                   <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -261,11 +231,11 @@ function ThemedParticles() {
       <Particles
         key={isDark ? "dark" : "light"}
         particleColors={isDark ? ["#ffffff", "#f5e6d3"] : ["#8b3a2a", "#b4532a"]}
-        particleCount={200}
-        particleSpread={10}
-        speed={0.1}
-        particleBaseSize={100}
-        moveParticlesOnHover={true}
+        particleCount={48}
+        particleSpread={12}
+        speed={0.04}
+        particleBaseSize={60}
+        moveParticlesOnHover={false}
         alphaParticles={false}
         disableRotation={false}
         className=""
@@ -278,18 +248,13 @@ function ProfilePanel() {
   return (
     <div className="space-y-6">
       <div className="relative">
-        <ProfileImage className="w-48 h-60 mx-auto lg:w-full lg:max-w-sm lg:h-[28rem] hover:scale-105 transition-transform duration-500" />
-        <div className="absolute -top-2 -right-2 w-4 h-4 bg-warm-gradient rounded-full animate-pulse"></div>
-        <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-warm-gradient rounded-full animate-pulse delay-300"></div>
+        <ProfileImage className="w-48 h-60 mx-auto lg:w-full lg:max-w-sm lg:h-[28rem]" />
       </div>
 
       <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 professional-shadow-lg">
         <div className="space-y-4">
           <div className="flex items-center justify-center lg:justify-start gap-3">
-            <div className="relative">
-              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-              <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
-            </div>
+            <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
             <span className="text-sm text-muted-foreground font-mono">Ouvert aux stages et PFE 2026–2027</span>
           </div>
 

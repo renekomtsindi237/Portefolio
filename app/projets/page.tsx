@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Navigation } from "@/components/navigation"
 import {
   ExternalLink,
@@ -20,6 +20,17 @@ import { Button } from "@/components/ui/button"
 type Category = "Tous" | "Data Engineering" | "Software Engineering" | "Cloud"
 
 const filters: Category[] = ["Tous", "Software Engineering", "Data Engineering", "Cloud"]
+
+const PROJECT_IDS: Record<string, string> = {
+  MicroRecouv: "microrecouv",
+  "Lakehouse événementiel": "lakehouse",
+  AquaSensus: "aquasensus",
+  "TP Cloud — Plateforme Analytics": "tp-cloud",
+  ServantAssist: "servantassist",
+  "AgriPrix Cameroun": "agriprix",
+  "Bibliothèque Numérique Camerounaise": "biblio",
+  Cineyang: "cineyang",
+}
 
 const projects = [
   {
@@ -199,6 +210,15 @@ const projects = [
 export default function ProjetsPage() {
   const [active, setActive] = useState<Category>("Tous")
 
+  useEffect(() => {
+    const id = window.location.hash.replace("#", "")
+    if (!id) return
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
+
   const counts = useMemo(() => {
     return Object.fromEntries(
       filters.map((filter) => [
@@ -297,8 +317,9 @@ export default function ProjetsPage() {
                 const Icon = project.icon
                 return (
                   <div
+                    id={PROJECT_IDS[project.title]}
                     key={project.title}
-                    className="group bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 relative overflow-hidden card-professional"
+                    className="group scroll-mt-24 bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-colors relative overflow-hidden card-professional"
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -306,7 +327,7 @@ export default function ProjetsPage() {
                     <div className="relative space-y-4">
                       <div className="flex items-start justify-between">
                         <div className="flex items-center gap-4">
-                          <div className="p-3 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl group-hover:scale-110 transition-all duration-300 shadow-md">
+                          <div className="p-3 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl">
                             <Icon className="h-7 w-7 text-warm-gradient drop-shadow-lg" />
                           </div>
                           <div>
@@ -366,33 +387,15 @@ export default function ProjetsPage() {
                         ))}
                       </ul>
 
-                      <div className="space-y-3 pt-1">
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wide text-foreground mb-2">Hard skills</p>
-                          <div className="flex flex-wrap gap-2">
-                            {project.hardSkills.map((skill) => (
-                              <span
-                                key={skill}
-                                className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 text-muted-foreground text-xs rounded-full font-mono border border-primary/20"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wide text-foreground mb-2">Soft skills</p>
-                          <div className="flex flex-wrap gap-2">
-                            {project.softSkills.map((skill) => (
-                              <span
-                                key={skill}
-                                className="px-3 py-1.5 bg-muted/60 text-muted-foreground text-xs rounded-full border border-border"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {project.hardSkills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="px-3 py-1.5 bg-gradient-to-r from-primary/10 to-accent/10 text-muted-foreground text-xs rounded-full font-mono border border-primary/20"
+                          >
+                            {skill}
+                          </span>
+                        ))}
                       </div>
 
                       <div className="pt-2 flex flex-wrap gap-3">
